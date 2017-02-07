@@ -39,84 +39,6 @@ button:focus {
 }
 
 
-//
-// my nav bar
-// **********
-
-//
-// custom navbar variables
-// move these to frshvariables later?
-
-// measure navbar height
-$navbar-height: ($navbar-padding-y * 2) + ($navbar-brand-padding-y * 2) + ($font-size-lg * $line-height-base);
-
-// fix navbar-dark bug in bootstrap for navbar-toggler
-.navbar-dark {
-	.navbar-toggler {
-    	color: $navbar-dark-active-color;
-	}
-}
-// remove x padding from toggler
-.navbar-toggler {
-	padding-left: 0;
-	padding-right: 0;
-}
-
-// line menu nav
-.nav-linemenu {
-	margin: 0 auto;
-	
-	.nav {
-		position: relative;
-		display: flex;
-
-		// just incase there's no reboot
-		margin: 0;
-		padding: 0;
-		list-style: none;
-	}
-
-	// y spacing
-	.nav-item + .nav-item {
-		margin-left: ($spacer * 2);
-	}
-
-	.nav-link {
-		// link styles
-		padding: $btn-padding-y 0;
-		font-weight: 600;
-		color: $gray-light;
-		transition: color .2s;
-		&:hover {
-			color: $gray-dark;
-		}
-	}
-
-	.nav-line {
-		position: absolute;
-		top: 100%;
-		left: 0;
-		height: 2px;
-		background: $brand-primary;
-		transition: 0.5s;
-		transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
-	}
-
-	.nav-item {
-		display: flex;
-		align-items: flex-end;
-		text-align: center;
-		
-		// link color
-		&.active {
-			.nav-link {
-				color: $brand-primary;
-				transition: color .4s;	
-			}
-		}
-	}
-}
-
 
 //
 // drawer
@@ -240,15 +162,6 @@ body.modal-open,
 	}
 }
 
-
-//
-// header area
-// ***********
-.header {
-	// add navbar height + regular margin to the top to account for fixed navbar
-	padding-top: $navbar-height + $spacer-y;
-	background-color: $gray-light;
-}
 
 
 // this is the sidebar flex layout

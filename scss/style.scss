@@ -1,5 +1,5 @@
 /*!
-*	frshcss v1.0.0-alpha.2
+*	frshcss v1.0.0-alpha.3
 *	Copyright 2017 Advice Interactive Group
 */
 
@@ -13,13 +13,13 @@
 // frsh variables
 // **************
 // load frsh variables, utilities & mixins
-@import "frsh/frshvariables";
+//@import "frsh/frshvariables";
 
 //
 // frsh overrides
 // **************
 // overrides for bootstrap mixins and css
-@import "frsh/overrides";
+//@import "frsh/overrides";
 
 //
 // bootstrap (Bootstrap v4.0.0-alpha.6)
@@ -32,8 +32,8 @@
 @import "frsh/frshbootstrap";
 
 // load frsh core (will be broken down into components later)
-@import "frsh/utilities";
-@import "frsh/frshstyles";
+//@import "frsh/utilities";
+//@import "frsh/frshstyles";
 
 
 //
