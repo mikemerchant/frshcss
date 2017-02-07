@@ -1,0 +1,69 @@
+/*!
+*	frshcss v1.0.0-alpha.2
+*	Copyright 2017 Advice Interactive Group
+*/
+
+// needed to get out of alpha
+// all components
+// basic patterns
+
+// remember for sass, load overwriting variables/mixins first, load overwriting styles last
+
+//
+// frsh variables
+// **************
+// load frsh variables, utilities & mixins
+@import "frsh/frshvariables";
+
+//
+// frsh overrides
+// **************
+// overrides for bootstrap mixins and css
+@import "frsh/overrides";
+
+//
+// bootstrap (Bootstrap v4.0.0-alpha.5)
+// ************************************
+// load bootstrap variables & mixins
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+// load bootstrap core
+@import "frsh/frshbootstrap";
+
+// load frsh core (will be broken down into components later)
+@import "frsh/utilities";
+@import "frsh/frshstyles";
+
+
+//
+// Media Copy Pasta
+// ****************
+
+// desktop first
+@include media-breakpoint-down(xs) {
+	// Extra small devices (portrait phones, less than 544px)
+}
+@include media-breakpoint-down(sm) {
+	// Small devices (landscape phones, less than 768px)
+}
+@include media-breakpoint-down(md) {
+	// Medium devices (tablets, less than 992px)
+}
+@include media-breakpoint-down(lg) {
+	// Large devices (desktops, less than 1200px)
+}
+
+// mobile first
+@include media-breakpoint-up(sm) {
+	// Small devices (landscape phones, 544px and up)
+}
+@include media-breakpoint-up(md) {
+	// Medium devices (tablets, 768px and up)
+}
+@include media-breakpoint-up(lg) {
+	// Large devices (desktops, 992px and up)
+}
+@include media-breakpoint-up(xl) {
+	// Extra large devices (large desktops, 1200px and up)
+}

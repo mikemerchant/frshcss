@@ -1,0 +1,13 @@
+// this css is only for the type demo page
+
+// load frshvariables that overwrite bootstrap
+@import "../frsh/frshvariables";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+.color-box {
+	flex: 1 0 0;
+	padding: $spacer;
+	margin-bottom: $spacer;
+}
+

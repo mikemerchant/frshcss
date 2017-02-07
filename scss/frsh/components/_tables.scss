@@ -1,0 +1,52 @@
+//
+// global for tables
+// *****************
+
+// Extend Tables
+.table-nowrap {
+	// No text wrapping in these tables
+	white-space: nowrap;
+}
+
+
+.table {
+	
+	// table icons
+	.trend-icon {
+		margin-right: .5rem;
+	}
+
+
+}
+
+// my special frsh-table
+.frsh-table {
+	// all columns centered except first
+	th, td {
+		text-align: center;
+		&:first-child {
+			text-align: left;
+		}
+	}
+
+	// make checkbox th,td small and make 2nd column align left
+	&.frsh-table-checkboxed {
+		th, td {
+			&:nth-child(2) {
+				text-align: left;
+			}
+		} 
+	}
+
+	// the th font should be small since it's bolded anyway
+	th {
+		font-size: $font-size-sm;
+	}
+
+	// if the table is striped, kill the borders
+	&.table-striped {
+		th, td {
+			border: none;
+		}
+	}
+}

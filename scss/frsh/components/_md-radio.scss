@@ -1,0 +1,122 @@
+//
+// Variables
+// --------------------------------------------------
+
+// Sizes
+$radio-size: 1.5rem;
+
+// Light Theme
+$radio-default-color-off:      $gray-light;
+$radio-default-color-on:       $brand-success;
+$radio-default-color-disabled: $gray-lighter;
+
+
+.md-radio {
+	position: relative;
+
+	label {
+		cursor: pointer;
+		font-weight: normal;
+		padding-left: $radio-size + $spacer;
+		margin: 0;
+
+		span {
+			display: block;
+			position: absolute;
+			left: 0;
+			//top: round((@line-height-computed - @radio-size) / 2);
+			transition-duration: 0.2s;
+		}
+
+		.circle {
+			border: 2px solid $radio-default-color-off;
+			height: $radio-size;
+			width: $radio-size;
+			border-radius: 100%;
+		}
+		.check {
+			height: $radio-size;
+			width: $radio-size;
+			border-radius: 100%;
+			background-color: $radio-default-color-on;
+			transform: scale3d(0, 0, 0);
+		}
+		.check:after {
+			display: block;
+			position: absolute;
+			content: "";
+			background-color: $radio-default-color-on;
+			left: -($radio-size / 2);
+			top: -($radio-size / 2);
+			height: ($radio-size * 2);
+			width: ($radio-size * 2);
+			border-radius: 100%;
+			z-index: 1;
+			opacity: 0;
+			margin: 0;
+			transform: scale3d(2, 2, 1);
+		}
+		input[type=radio]:not(:checked) ~ .check:after {
+			animation: rippleOff 500ms;
+		}
+		input[type=radio]:checked ~ .check:after {
+			animation: rippleOn 500ms;
+		}
+
+	}
+
+	input[type=radio]:checked ~ .check {
+		background-color: $radio-default-color-on;
+	}
+	input[type=radio]:checked ~ .circle {
+		border-color: $radio-default-color-on;
+	}
+
+	input[type=radio][disabled] ~ .check,
+	input[type=radio][disabled] ~ .circle {
+		opacity: 1;
+	}
+
+	input[type=radio] {
+		// hide this without using display:none
+		position: absolute;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		height: 1px; width: 1px;
+		margin: -1px; padding: 0; border: 0;
+	}
+	input[type=radio]:checked ~ .check {
+		transform: scale3d(0.5, 0.5, 1);
+	}
+	input[type=radio][disabled] ~ .circle {
+		border-color: $radio-default-color-disabled;
+	}
+	input[type=radio][disabled] ~ .check {
+		background-color: $radio-default-color-disabled;
+	}
+
+}
+
+@keyframes rippleOn {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.2;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes rippleOff {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 0.2;
+	}
+	100% {
+		opacity: 0;
+	}
+}

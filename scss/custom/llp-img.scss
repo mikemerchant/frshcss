@@ -1,0 +1,49 @@
+/*!
+ * frshcss v1.0.0
+ * Copyright 2016 Advice Interactive Group
+ */
+
+// load frshvariables that overwrite bootstrap
+@import "../frsh/frshvariables";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+// load bootstrap (Bootstrap v4.0.0-alpha.5)
+@import "../frsh/frshbootstrap";
+
+// configure fonts
+// ***************
+.material-icons {
+	font-size: inherit;
+	display: inherit;
+	line-height: inherit;
+    vertical-align: bottom;
+}
+
+// overrides
+// *********
+// kill focus on buttons
+button:focus {
+    outline: 0;
+}
+
+// styles for the svg
+.llp-svg-img {
+	width: 100%;
+	height: auto;
+	transform: scale(0.75);
+}
+
+h1,h2,h3,p {
+	text-align: center;
+}
+
+.bg-1 {
+	background: url("../../img/llp-svg/bg1.jpg") no-repeat center center;
+	background-size: cover;
+}
+
+.bg-2 {
+	background: url("../../img/llp-svg/bg2.jpg") no-repeat center center;
+	background-size: cover;
+}

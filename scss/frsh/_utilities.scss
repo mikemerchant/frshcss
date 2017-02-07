@@ -1,0 +1,96 @@
+//
+// frsh utilities
+// **************
+
+
+//
+// extra background variants
+// *************************
+@include bg-variant('.bg-secondary', $brand-secondary);
+@include bg-variant('.bg-gray-lightest', $gray-lightest);
+@include bg-variant('.bg-gray-lighter', $gray-lighter);
+@include bg-variant('.bg-gray-light', $gray-light);
+@include bg-variant('.bg-gray', $gray);
+@include bg-variant('.bg-gray-dark', $gray-dark);
+@include bg-variant('.bg-white', $white);
+
+
+//
+// extra text color variants
+// *************************
+@include text-emphasis-variant('.text-inverse', $gray-dark);
+@include text-emphasis-variant('.text-white', $white);
+
+
+//
+// extra text sizes
+// ****************
+.font-size-lg {
+	font-size: $font-size-lg;
+}
+.font-size-sm {
+	font-size: $font-size-sm;
+}
+.font-size-xs {
+	font-size: $font-size-xs;
+}
+
+
+//
+// flex container
+// **************
+$flex-gutter: $spacer !default;
+
+// flex column break mixin
+@mixin flex-break($break) {
+	// only use this inside flex container
+	&.flex-#{$break}-column {
+		// set defaults (mobile first yo)
+		flex-flow: column nowrap;
+		> div { margin-left: 0; }
+
+		@include media-breakpoint-up(#{$break}) {
+			flex-flow: row nowrap;
+
+			// add left padding except first child
+			> div  {
+				margin-left: $flex-gutter;
+
+				&:first-child, &:only-child {
+					margin-left: 0;
+				}
+			}
+		}
+	}
+}
+
+// establish a flex container. default child div is row/nowrap and equal stretched.
+.flex-container {
+	display: flex;
+
+	// stretch direct child
+	&.flex-grow {
+		> div { flex: 1; }
+	}
+	
+	// kill margin gutters
+	&.no-gutter {
+		> div {
+			margin-left: 0 !important;
+			margin-right: 0 !important;
+		}
+	}
+
+	// vert-center individual child div
+	.align-self-center {
+		align-self: center;
+	}
+
+	// use flex column mixin
+	// only .flex-**-column has margin between flex items
+	@include flex-break("xs");
+	@include flex-break("sm");
+	@include flex-break("md");
+	@include flex-break("lg");
+	@include flex-break("xl");
+}

@@ -1,0 +1,867 @@
+//
+// css overrides
+// *************
+
+// kill focus on buttons
+button:focus {
+    outline: 0;
+}
+
+
+//
+// import components
+// *****************
+
+@import "components/md-checkbox";
+@import "components/md-radio";
+@import "components/tables";
+
+
+//
+// configure icon fonts
+// ********************
+
+.material-icons {
+	font-size: inherit;
+	line-height: inherit;
+    vertical-align: bottom;
+}
+
+
+//
+// buttons (move this to own file)
+// *******************************
+.btn-outline-dark {
+	@include button-outline-variant($gray-dark);
+}
+.btn-outline-light {
+	@include button-outline-variant(#fff);
+}
+
+
+//
+// my nav bar
+// **********
+
+//
+// custom navbar variables
+// move these to frshvariables later?
+
+// measure navbar height
+$navbar-height: ($navbar-padding-y * 2) + ($navbar-brand-padding-y * 2) + ($font-size-lg * $line-height-base);
+
+// fix navbar-dark bug in bootstrap for navbar-toggler
+.navbar-dark {
+	.navbar-toggler {
+    	color: $navbar-dark-active-color;
+	}
+}
+// remove x padding from toggler
+.navbar-toggler {
+	padding-left: 0;
+	padding-right: 0;
+}
+
+// line menu nav
+.nav-linemenu {
+	margin: 0 auto;
+	
+	.nav {
+		position: relative;
+		display: flex;
+
+		// just incase there's no reboot
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	// y spacing
+	.nav-item + .nav-item {
+		margin-left: ($spacer * 2);
+	}
+
+	.nav-link {
+		// link styles
+		padding: $btn-padding-y 0;
+		font-weight: 600;
+		color: $gray-light;
+		transition: color .2s;
+		&:hover {
+			color: $gray-dark;
+		}
+	}
+
+	.nav-line {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		height: 2px;
+		background: $brand-primary;
+		transition: 0.5s;
+		transition-timing-function: cubic-bezier(1, 0.01, 0, 1.22);
+	}
+
+	.nav-item {
+		display: flex;
+		align-items: flex-end;
+		text-align: center;
+		
+		// link color
+		&.active {
+			.nav-link {
+				color: $brand-primary;
+				transition: color .4s;	
+			}
+		}
+	}
+}
+
+
+//
+// drawer
+// ******
+// acts like a modal for now
+
+// drawer variables
+$drawer-padding-x: 2rem !default;
+$drawer-background: #fff !default;
+$drawer-width: 16rem !default;
+$drawer-font-size: $font-size-sm !default;
+
+// let's kill the auto padding for scroll.. it's not needed yo
+body.modal-open,
+.drawer {
+	padding-right: 0 !important;
+}
+
+// drawer wrapper
+.drawer {
+	display: none;
+
+	// Prevent Chrome on Windows from adding a focus outline.
+	outline: 0;
+	-webkit-overflow-scrolling: touch;
+	overflow: hidden;
+
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	z-index: $zindex-modal;
+
+
+	&.fade {
+		// just make it slide and not fade
+  		opacity: 1;
+	}
+
+	//&.in {}
+
+	&.fade .drawer-content {
+		transform: translate3d(16rem,0,0);
+		transition: transform 0.4s;
+		transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+	}
+	&.in .drawer-content {
+		transform: translate3d(0,0,0);
+		transition: transform 0.4s;
+		transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+	}
+}
+// top part of drawer, match style with nav
+.drawer-header {
+	padding: $navbar-padding-y $spacer;
+	margin-bottom: $spacer;
+	text-align: right;
+}
+// the actual drawer
+.drawer-content {
+	width: $drawer-width;
+	height: 100%;
+	padding: 0 0 $spacer;
+	margin: 0 0 0 auto;
+	border-left: $modal-content-border-width solid $modal-content-border-color;
+
+	background: $drawer-background;
+
+	// let it have a scrollbar when it's visibile
+	overflow-x: hidden;
+	overflow-y: auto;
+}
+
+// drawer backdrop
+.modal-backdrop {
+	// Fade for backdrop
+	&.fade {
+		transition: opacity 0.4s;
+		transition-timing-function: cubic-bezier(0.4,0,0.2,1);
+	}
+}
+
+// drawer nav
+.nav-drawer {
+	// target the link inside nav-item
+	.nav-link {
+		display: block;
+		font-size: $drawer-font-size;
+		padding: ($spacer / 2) $drawer-padding-x;
+		color: $body-color;
+		font-weight: 700;
+		&:focus,
+		&:active {
+			background-color: $gray-lightest;
+		}
+	}
+
+	// if the item doesn't have a sub nav, give it active style
+	.nav-item {
+		&.active {
+			.nav-link {
+				color: $brand-primary;
+			}
+		}
+	}
+
+	// sub-nav items
+	.nav {
+		.nav-item {
+			&.active {
+				font-weight: 600;
+				color: $brand-primary;
+			}
+		}
+		.nav-link {
+			font-weight: normal;
+			padding: ($spacer / 4) ($drawer-padding-x * 2);
+		}
+	}
+}
+
+
+//
+// header area
+// ***********
+.header {
+	// add navbar height + regular margin to the top to account for fixed navbar
+	padding-top: $navbar-height + $spacer-y;
+	background-color: $gray-light;
+}
+
+
+// this is the sidebar flex layout
+// *******************************
+.section-with-aside {
+	margin-top: 1rem;
+
+	// flexin, make sidebar on top and content below
+	display: flex;
+	flex-flow: column nowrap;
+	@include media-breakpoint-up(xl) {
+		// flex up the children on md and larger
+		flex-flow: row nowrap;
+	}
+}
+
+.aside {
+	// make sidebar first
+	order: -1;
+
+	@include media-breakpoint-up(xl) {
+		// sidebar set size and right margin
+		flex: 0 0 12rem;
+		margin-right: $spacer * 2;
+	}
+}
+
+
+//
+// switch - material css switch
+// ****************************
+// custom switch variables
+$switch-height: $spacer !default;
+$switch-knob-height: ($spacer * $line-height-base) !default;
+$switch-width: 2.5rem !default;
+$switch-offset: (($switch-knob-height - $switch-height) / 2) !default;
+
+// custom switch css
+.custom-switch {
+	// kill default label margins
+	margin: 0;
+	display: flex;
+	align-items: center;
+
+	.custom-switch-input {
+		// hide this without using display:none
+		position: absolute;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		height: 1px; width: 1px;
+		margin: -1px; padding: 0; border: 0;
+
+		&:checked {
+			~ .custom-switch-indicator {
+				background: rgba($brand-success, .4);
+
+				&:after {
+					background: $brand-success;
+					left: $switch-width - $switch-knob-height + $switch-offset;
+				}
+			}
+		}
+	}
+
+	.custom-switch-indicator {
+		// the switch area
+		content: '';
+		position: relative;
+		display: inline-block;
+		cursor: pointer;
+
+		background: rgba(0,0,0,.2);
+
+		height: $switch-height;
+		width: $switch-width;
+		border-radius: $switch-height / 2;
+
+		transition: all 0.3s ease;
+
+		&:after {
+			// the knob
+			content: '';
+			position: absolute;
+
+			background: $white;
+			box-shadow: 0 0px 3px 0 rgba(0,0,0,.2),
+						0 1px 1px 0 rgba(0,0,0,.14),
+						0 2px 1px -1px rgba(0,0,0,.12);
+
+			height: $switch-knob-height;
+			width: $switch-knob-height;
+			border-radius: $switch-knob-height / 2;
+
+			left: -$switch-offset;
+			top: -$switch-offset;
+
+			transition: all 0.3s ease;
+		}
+	}
+
+	// text that goes with switch
+	.custom-switch-description {
+		font-size: $font-size-sm;
+		text-transform: uppercase;
+		font-weight: 500;
+		color: rgba(0, 0, 0, .4);
+
+		// give it some spacing from the switch
+		&:first-child {
+			margin-right: $spacer;
+		}
+		&:last-child {
+			margin-left: $spacer;
+		}
+
+	}
+}
+
+
+//
+// card stuff
+// **********
+.card {
+
+	// make sure the image fits to the card.
+	.card-img-top,
+	.card-img-bottom {
+		width: 100%;
+		height: auto;
+	}
+
+	// it's an awesome card header area!!!!
+	.card-data-header {
+		display: flex;
+		align-items: center;
+		h1,h2,h3,h4,h5,h6 {
+			margin-bottom: 0;
+		}
+	}
+	.card-title-icon {
+		height: 2rem;
+		width: 2rem;
+		margin-right: 1rem;
+	}
+
+	// direct table child gets no margin-bottom
+	.table {
+		margin-bottom: 0;
+
+		// make first data cell same width padding
+		th, td {
+			&:first-child {
+				padding-left: $card-spacer-x;
+			}
+			&:last-child {
+				padding-right: $card-spacer-x;
+			}
+		}
+	}
+}
+
+
+//
+// global for tables
+// *****************
+.table {
+	
+	// table icons
+	.trend-icon {
+		margin-right: .5rem;
+	}
+
+
+}
+
+// my special frsh-table
+.frsh-table {
+	// all columns centered except first
+	th, td {
+		text-align: center;
+		&:first-child {
+			text-align: left;
+		}
+	}
+
+	// make checkbox th,td small and make 2nd column align left
+	&.frsh-table-checkboxed {
+		th, td {
+			&:nth-child(2) {
+				text-align: left;
+			}
+		} 
+	}
+
+	// the th font should be small since it's bolded anyway
+	th {
+		font-size: $font-size-sm;
+	}
+
+	// if the table is striped, kill the borders
+	&.table-striped {
+		th, td {
+			border: none;
+		}
+	}
+}
+
+
+
+
+// New Shit
+
+//
+// variables
+$side-panel-width: 18rem !default;
+
+$nav-item-padding-x: 2rem !default;
+$nav-item-padding-y: .75rem !default;
+
+$nav-link-icon-x: 1.5rem !default;
+$nav-link-icon-y: $font-size-base * $line-height-base !default;
+
+
+$nav-title-text: fade-out($gray-dark, .5) !default;
+$nav-text: fade-out($gray-dark, .3) !default;
+$nav-text-hover: $gray-dark !default;
+$nav-text-active: $brand-primary !default;
+$nav-text-disabled: fade-out($gray-dark, .7) !default;
+
+$shadow-x: .75rem !default;
+$shadow-y: .75rem !default;
+
+//
+// Page body
+// Makes it stretch to full view height
+.page-body,
+.page-wrapper {
+    min-height: 100vh;
+    position: relative;
+}
+
+.page-wrapper {
+    top: 0;
+    height: 100vh;
+}
+
+// styles for the side panel
+.has-side-panel {
+	&.page-body {
+		overflow: hidden;
+	}
+	.page-wrapper {
+		// moving stuff for the side-panel
+		transform: translateX(0); // 2d fallback
+		transform: translate3d(0);
+
+		transition: -webkit-transform .33s cubic-bezier(.694, .0482, .335, 1);
+		backface-visibility: hidden;
+
+		&.side-panel-open {
+			transform: translateX($side-panel-width); // 2d fallback
+			transform: translate3d($side-panel-width, 0, 0);
+
+			// display none even if open on large displays
+			@include media-breakpoint-up(xl) {
+				transform: translateX(0); // 2d fallback
+				transform: translate3d(0);
+			}
+		}
+	}
+}
+
+// the toggler button in navbar
+.side-panel-toggler {
+	display: block;
+	width: auto;
+	height: 2.35rem;
+	border: none;
+	cursor: pointer;
+	padding: 0;
+
+	.navbar-dark & {
+		color: rgba(255,255,255,0.5);
+		background: none;
+	}
+
+	// don't display on large screens
+	@include media-breakpoint-up(xl) {
+		display: none;
+	}
+}
+
+// overlay for when the panel is open
+#clickToClose {
+	display: none;
+	position: fixed;
+	height: 100%;
+	width: 100%;
+
+	top: 0;
+	left: auto;
+
+	cursor: pointer;
+	z-index: 9999;
+
+	.side-panel-is-open & {
+		display: block;
+
+		// display none even if open on large displays
+		@include media-breakpoint-up(xl) {
+			display: none;
+		}
+	}
+}
+
+//
+// Side Panel
+// Styles for side panel
+.side-panel {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -$side-panel-width;
+
+    max-height: 100%;
+    height: 100%;
+    width: $side-panel-width;
+
+    display: block;
+    overflow-x: hidden;
+    color: $body-color;
+	background-color: $white;
+
+	box-shadow: .75rem 0 .75rem -.75rem rgba(0,0,0,0.05),
+				1px 0 0 0 rgba(0,0,0,.05);
+	
+    z-index: 3;
+
+	// move into regular position on large displays
+	@include media-breakpoint-up(xl) {
+		left: 0;
+	}
+
+	hr {
+		margin: 0;
+		padding: 0;
+		border-top: none;
+		border-bottom: 1px solid rgba(0,0,0,.05);
+	}
+
+}
+
+.side-wrapper {
+	position: relative;
+
+    max-height: none;
+    min-height: 100%;
+    overflow: hidden;
+    width: $side-panel-width;
+
+    z-index: 4;
+}
+
+.side-branding {
+	font-size: $font-size-lg;
+	padding: $navbar-padding-y $nav-item-padding-x;
+	line-height: 2.35rem;
+	background-color: $white;
+	a {
+    	color: $body-color;
+		text-decoration: none;
+	}
+}
+
+// Areas in nav that aren't lists
+.side-item {
+	padding: ($nav-item-padding-x - $nav-item-padding-y) 0;
+}
+
+// The nap! we can reuse this elsewhere
+address.nap {
+	margin: 0;
+	padding: 0;
+	font-size: $font-size-sm;
+	div {
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+}
+
+// the title area for each nav section (usually goes inside ul/li)
+.nav-title {
+	padding: $nav-item-padding-y $nav-item-padding-x;
+	color: $nav-title-text;
+	font-size: $font-size-xs;
+	text-transform: uppercase;
+	font-weight: $headings-font-weight;
+}
+
+.nav-side-panel {
+	padding: ($nav-item-padding-x - $nav-item-padding-y) 0;
+
+	// link inside nav item
+	.nav-link {
+		display: block;
+		position: relative;
+		padding: $nav-item-padding-y $nav-item-padding-x;
+		
+		color: $nav-text;
+		border-left: .25rem solid transparent;
+
+		&:hover {
+			color: $nav-text-hover;
+			background-color: rgba(0, 0, 0, .025);
+			border-left-color: $brand-primary;
+		}
+		&.active,
+		&:active {
+			background-color: rgba(0, 0, 0, .025);
+			border-left-color: $nav-text-active;
+		}
+		&.active {
+			color: $nav-text-active;
+			font-weight: $headings-font-weight;
+		}
+		&.disabled {
+			color: $nav-text-disabled;
+			background-color: transparent;
+			border-left-color: transparent;
+		}
+
+		// nav arrow on submenu buttons
+		.nav-arrow {
+			position: absolute;
+			// positioning
+			top: $nav-item-padding-y;
+			right: $nav-item-padding-x / 2;
+			// sizing
+			font-size: $font-size-lg;
+			width: $nav-link-icon-y;
+			height: $nav-link-icon-y;
+			line-height: $nav-link-icon-y;
+			text-align: center;
+		}
+		// when menu is not open
+		&.collapsed .nav-arrow {
+			transform: rotate(-90deg);
+		}
+
+		// icon for nav-items
+		.nav-link-icon {
+			// sizing
+			width: $nav-link-icon-x;
+			height: $nav-link-icon-y;
+			line-height: $nav-link-icon-y;
+			text-align: left;
+		}
+	}
+
+
+
+
+	// sub nav area
+	.nav-item {
+		// bg and padding for open sub nav
+		.nav {
+			padding: $nav-item-padding-y 0;
+			background-color: $gray-lighter;
+			box-shadow: 
+				inset 0 .75rem .75rem -.75rem rgba(0,0,0,0.05),
+				inset 0 -.75rem .75rem -.75rem rgba(0,0,0,0.05);
+		}
+		// sub links
+		.nav-item {
+			.nav-link {
+				padding: $nav-item-padding-y $nav-item-padding-x $nav-item-padding-y ($nav-item-padding-x * 1.5);
+			}
+		}
+	}
+
+}
+
+
+//
+// Main Panel
+// Styles for the main panel shit
+.main-panel {
+    position: relative;
+    overflow: auto;
+    min-height: 100%;
+    max-height: 100%;
+    height: 100%;
+    background: $gray-lighter;
+    z-index: 2;
+
+	// make some space on large screens
+	@include media-breakpoint-up(xl) {
+		float: right;
+		width: calc(100% - #{$side-panel-width});
+	}
+}
+
+//
+// navbar at the top of the main panel
+
+// the floated nav inside the navbar
+.navbar-nav {
+	.nav-item + .nav-item {
+		margin-left: 2rem;
+	}
+}
+
+
+//
+// Cards
+// Here are my card styles
+.card {
+	border: none;
+	margin-bottom: 0;
+	
+	box-shadow: 0 0 $shadow-x 0 rgba(0,0,0,0.05),
+				0 1px 0 0 rgba(0,0,0,0.05);
+}
+.card-header {
+	font-weight: 500;
+}
+.card-buttons {
+	float: right;
+}
+.card-update {
+	line-height: 1.5rem;
+}
+
+
+
+.card-group-vis {
+	text-align: center;
+
+	.card-donut {
+		position: relative;
+	}
+
+	.canvas-overlay {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+
+		margin: 10%;
+
+		display: flex;
+		flex-flow: column nowrap;
+		align-items: center;
+		justify-content: center;
+
+		.donut-value {
+			font-size: 3rem;
+			line-height: 1.1;
+		}
+		.donut-desc {
+			font-size: 1rem;
+			line-height: 1.5rem;
+		}
+		.donut-trend {
+			font-size: 1rem;
+			line-height: 1.5rem;
+		}
+	}
+}
+
+.card-reputation {
+	.star-group {
+		display: flex;
+		justify-content: center;
+
+		.star-rating {
+			font-size: 2rem;
+			margin-right: .5rem;
+		}
+		.star {
+			font-size: 2rem;
+			margin: 0;
+		}
+		.star-good {
+			color: $brand-warning;
+		}
+		.star-half {
+			background: linear-gradient(to right, $brand-warning 0%, $brand-warning 50%, $gray-lighter 50%, $gray-lighter 100%);
+			-webkit-background-clip: text;
+  			-webkit-text-fill-color: transparent;
+		}
+		.star-bad {
+			color: $gray-lighter;
+		}
+	}
+	.star-desc {
+		font-size: 1rem;
+		line-height: 1.5rem;
+	}
+}
+
+.second-row {
+	display: flex;
+	justify-content: space-between;
+
+	.second-row-group-1 {
+		margin-right: .75rem;
+		width: 66%;
+	}
+	.second-row-group-2 {
+		margin-left: .75rem;
+		width: 34%;
+	}
+}

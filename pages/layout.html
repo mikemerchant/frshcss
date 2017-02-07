@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<!-- Required meta tags always come first -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+	<title>frshCSS</title>
+
+	<!-- load fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+	<!-- load frshcss -->
+	<link href="../css/style.css" rel="stylesheet">
+	<link href="../css/custom/keyword-module.css" rel="stylesheet">
+</head>
+
+<body class="page-body">
+
+	<div class="page-wrapper">
+		<aside class="side-panel">
+			<div class="side-wrapper">
+				<div class="side-branding">
+					<a href="#" class="logo">Advice Local</a>
+				</div>
+				<ul class="nav nav-side-panel">
+					<li class="nav-item">
+						<a class="nav-link active" href="#">Active</a>
+					</li>
+					<li class="nav-item">
+						<ul class="nav">
+							<li class="nav-item">
+								<a class="nav-link active" href="#">Active</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Link</a>
+							</li>
+							<li class="nav-item">
+								<a class="nav-link" href="#">Link</a>
+							</li>
+						</ul>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Link</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link disabled" href="#">Disabled</a>
+					</li>
+				</ul>
+			</div>
+		</aside>
+		<main class="main-panel">
+			<nav class="navbar navbar-full navbar-dark bg-primary">
+				<ul class="nav navbar-nav float-sm-right">
+					<li class="nav-item">
+						<a class="nav-link" href="#">Other Stuff</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Blog</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#">Help</a>
+					</li>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="http://example.com" id="supportedContentDropdown" data-toggle="dropdown" aria-haspopup="true"
+							aria-expanded="false">Profile</a>
+						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="supportedContentDropdown">
+							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+						</div>
+					</li>
+				</ul>
+				<form class="form-inline">
+					<input class="form-control" type="text" placeholder="Search">
+					<button class="btn btn-primary" type="submit">Search</button>
+				</form>
+			</nav>
+			<section class="main-content">
+
+				<section class="bg-primary py-3 mb-2 text-xs-center text-white">
+					<div class="container-fluid">
+						<h1 class="display-1 mb-2">Keyword Module</h1>
+						<p class="lead">Keyword Module example. Built with Bootstrap4 and flexbox. Convert to Bootstrap 2 for production?</p>
+					</div>
+				</section>
+
+				<section>
+					<div class="container">
+						<div class="flex-container" id="keyword-top">
+							<button type="button" class="btn btn-primary mb-2" data-toggle="modal" data-target="#addKeywordModal"><i class="material-icons">add</i> Add Keywords</button>
+
+							<div class="form-group mb-2">
+								<label class="custom-switch">
+									<span class="custom-switch-description">Activate this module</span>
+									<input type="checkbox" class="custom-switch-input">
+									<span class="custom-switch-indicator"></span>
+								</label>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section>
+					<div class="container">
+						<div class="card">
+							<div class="card-block card-data-header">
+								<h2 class="h3">Keywords</h2>
+							</div>
+							<div class="flex-container flex-grow flex-sm-column mx-1">
+								<div class="frsh-card text-xs-center">
+									<div class="frsh-title">Active Keywords</div>
+									<div class="frsh-score">4</div>
+									<div class="frsh-desc">7 Total Keywords</div>
+								</div>
+								<div class="frsh-card text-xs-center">
+									<div class="frsh-title">Highest Avg Rank</div>
+									<div class="frsh-score">8</div>
+									<div class="frsh-desc">Donuts</div>
+								</div>
+								<div class="frsh-card text-xs-center">
+									<div class="frsh-title">Average Rank</div>
+									<div class="frsh-score">42</div>
+									<div class="frsh-desc"><span class="text-success"><i class="material-icons trend-icon">trending_up</i>+1</span></div>
+								</div>
+							</div>
+							<div class="table-responsive">
+								<table class="table table-striped frsh-table frsh-table-checkboxed" id="keyword-table">
+									<thead>
+										<tr>
+											<th class="table-checkbox">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input">
+													<span class="custom-control-indicator"></span>
+												</label>
+											</th>
+											<th>Keyword</th>
+											<th>Date Added</th>
+											<th>Change</th>
+											<th>Avg Rank</th>
+											<th>Activity</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="table-checkbox">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input">
+													<span class="custom-control-indicator"></span>
+												</label>
+											</td>
+											<td>Donuts</td>
+											<td>3/18/2016</td>
+											<td class="text-success"><i class="material-icons trend-icon">trending_up</i>+3</td>
+											<td>8</td>
+											<td><span class="tag tag-primary">Active</span></td>
+										</tr>
+										<tr>
+											<td class="table-checkbox">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input">
+													<span class="custom-control-indicator"></span>
+												</label>
+											</td>
+											<td>Baked Goods</td>
+											<td>4/27/2016</td>
+											<td class="text-success"><i class="material-icons trend-icon">trending_up</i>+5</td>
+											<td>63</td>
+											<td><span class="tag tag-primary">Active</span></td>
+										</tr>
+										<tr>
+											<td class="table-checkbox">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input">
+													<span class="custom-control-indicator"></span>
+												</label>
+											</td>
+											<td>Fried Donut</td>
+											<td>5/12/2016</td>
+											<td class="text-danger"><i class="material-icons trend-icon">trending_down</i>-10</td>
+											<td>15</td>
+											<td><span class="tag tag-primary">Active</span></td>
+										</tr>
+										<tr>
+											<td class="table-checkbox">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input">
+													<span class="custom-control-indicator"></span>
+												</label>
+											</td>
+											<td>Glazed Donut</td>
+											<td>6/15/2016</td>
+											<td class="text-muted"><i class="material-icons trend-icon">trending_flat</i>+0</td>
+											<td>30</td>
+											<td><span class="tag tag-primary">Active</span></td>
+										</tr>
+										<tr>
+											<td class="table-checkbox">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input">
+													<span class="custom-control-indicator"></span>
+												</label>
+											</td>
+											<td>Cronut</td>
+											<td>7/21/2016</td>
+											<td></td>
+											<td></td>
+											<td><span class="tag tag-default">Inactive</span></td>
+										</tr>
+										<tr>
+											<td class="table-checkbox">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input">
+													<span class="custom-control-indicator"></span>
+												</label>
+											</td>
+											<td>Donut</td>
+											<td>8/8/2016</td>
+											<td></td>
+											<td></td>
+											<td><span class="tag tag-default">Inactive</span></td>
+										</tr>
+										<tr>
+											<td class="table-checkbox">
+												<label class="custom-control custom-checkbox">
+													<input type="checkbox" class="custom-control-input">
+													<span class="custom-control-indicator"></span>
+												</label>
+											</td>
+											<td>Coffee</td>
+											<td>8/19/2016</td>
+											<td></td>
+											<td></td>
+											<td><span class="tag tag-default">Inactive</span></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+							<div class="card-block">
+								<a href="#" class="btn btn-secondary">Remove Keyword</a>
+								<a href="#" class="btn btn-primary">Toggle Activate Keyword</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				
+				<section class="mb-3">
+					<div class="container">
+						<div class="flex-container flex-lg-column flex-grow">
+
+							<div class="card">
+								<div class="card-block card-data-header">
+									<img src="../img/title-icons/googlemaps.png" class="card-title-icon">
+									<h3 class="h4">Google Maps</h3>
+								</div>
+								<div class="table-responsive">
+									<table class="table table-striped frsh-table" id="keyword-googlemaps-table">
+										<thead>
+											<tr>
+												<th>Keyword</th>
+												<th>Change</th>
+												<th>Rank</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Donuts</td>
+												<td class="text-success"><i class="material-icons trend-icon">trending_up</i>+2</td>
+												<td>10</td>
+											</tr>
+											<tr>
+												<td>Baked Goods</td>
+												<td class="text-danger"><i class="material-icons trend-icon">trending_down</i>-49</td>
+												<td>91</td>
+											</tr>
+											<tr>
+												<td>Fried Donut</td>
+												<td class="text-danger"><i class="material-icons trend-icon">trending_down</i>-6</td>
+												<td>16</td>
+											</tr>
+											<tr>
+												<td>Glazed Donut</td>
+												<td class="text-muted"><i class="material-icons trend-icon">trending_flat</i>+0</td>
+												<td>34</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-block card-data-header">
+									<img src="../img/title-icons/google.png" class="card-title-icon">
+									<h3 class="h4">Google Mobile</h3>
+								</div>
+								<div class="table-responsive">
+									<table class="table table-striped frsh-table" id="keyword-google-mobile-table">
+										<thead>
+											<tr>
+												<th>Keyword</th>
+												<th>Change</th>
+												<th>Rank</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Donuts</td>
+												<td class="text-success"><i class="material-icons trend-icon">trending_up</i>+1</td>
+												<td>7</td>
+											</tr>
+											<tr>
+												<td>Baked Goods</td>
+												<td class="text-success"><i class="material-icons trend-icon">trending_up</i>+25</td>
+												<td>47</td>
+											</tr>
+											<tr>
+												<td>Fried Donut</td>
+												<td class="text-danger"><i class="material-icons trend-icon">trending_down</i>-9</td>
+												<td>13</td>
+											</tr>
+											<tr>
+												<td>Glazed Donut</td>
+												<td class="text-success"><i class="material-icons trend-icon">trending_up</i>+2</td>
+												<td>27</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+							<div class="card">
+								<div class="card-block card-data-header">
+									<img src="../img/title-icons/bing.png" class="card-title-icon">
+									<h3 class="h4">Bing Maps</h3>
+								</div>
+								<div class="table-responsive">
+									<table class="table table-striped frsh-table" id="keyword-bing-table">
+										<thead>
+											<tr>
+												<th>Keyword</th>
+												<th>Change</th>
+												<th>Rank</th>
+											</tr>
+										</thead>
+										<tbody>
+											<tr>
+												<td>Donuts</td>
+												<td class="text-success"><i class="material-icons trend-icon">trending_up</i>+4</td>
+												<td>8</td>
+											</tr>
+											<tr>
+												<td>Baked Goods</td>
+												<td class="text-success"><i class="material-icons trend-icon">trending_up</i>+12</td>
+												<td>59</td>
+											</tr>
+											<tr>
+												<td>Fried Donut</td>
+												<td class="text-danger"><i class="material-icons trend-icon">trending_down</i>-12</td>
+												<td>14</td>
+											</tr>
+											<tr>
+												<td>Glazed Donut</td>
+												<td class="text-danger"><i class="material-icons trend-icon">trending_down</i>-2</td>
+												<td>29</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+			</section>
+		</main>
+	</div>
+
+	<!-- jQuery first, then Tether, then Bootstrap JS. -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js" integrity="sha384-3ceskX3iaEnIogmQchP8opvBy3Mi7Ce34nWjpBIwVTHfGYWQS9jwHDVRnpKKHJg7" crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.3.7/js/tether.min.js" integrity="sha384-XTs3FgkjiBgo8qjEjBk0tGmf3wPrWtA6coPfQDfFEY8AnYJwjalXCiosYRBIBZX8" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+</body>
+
+</html>

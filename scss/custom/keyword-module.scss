@@ -1,0 +1,120 @@
+/*
+/* Keyword Module Styles
+/* *********************
+*/
+
+// this css is only for the keyword demo page
+
+// load frshvariables that overwrite bootstrap
+@import "../frsh/frshvariables";
+@import "../bootstrap/variables";
+@import "../bootstrap/mixins";
+
+// custom page body style
+body {
+	background-color: $gray-lightest;
+}
+
+
+// page specific
+// *************
+#keyword-top {
+	justify-content: space-between;
+	align-items: center;
+}
+
+#keyword-table {
+	td {
+		&:nth-child(3),
+		&:nth-child(4) {
+			font-size: $font-size-sm;
+		}
+		&:nth-child(5) {
+			font-weight: bold;
+		}
+	}
+}
+
+#keyword-googlemaps-table,
+#keyword-google-mobile-table,
+#keyword-bing-table {
+	td {
+		&:nth-child(2) {
+			font-size: $font-size-sm;
+		}
+		&:last-child {
+			font-weight: bold;
+		}
+	}
+}
+
+
+//
+// custom checkbox shitttt
+// ***********************
+
+// custom checkboxes everywhere
+.custom-checkbox {
+	height: $custom-control-indicator-size;
+	width: $custom-control-indicator-size;
+
+	.custom-control-input {
+		// hide this without using display:none
+		position: absolute;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		height: 1px; width: 1px;
+		margin: -1px; padding: 0; border: 0;
+	}
+
+	.custom-control-indicator {
+		top: 0;
+		left: 0;
+
+		transition: all .3s ease;
+	}
+}
+
+// when the checkbox is in a table.. add table-checkbox to the th/td
+.table-checkbox {
+	// make the width of the cell fit the checkbox
+	width: ($table-cell-padding * 2) + $custom-control-indicator-size;
+	.card & {
+		width: $card-spacer-x + $table-cell-padding + $custom-control-indicator-size;
+	}
+	.custom-control {
+		display: block;
+		padding: 0;
+		margin-bottom: 0;
+	}
+}
+
+
+//
+// an all new frsh card!
+// *********************
+
+.frsh-card {
+	margin-bottom: $card-spacer-y;
+  	padding: $card-spacer-x;
+
+	background-color: $gray-lighter;
+
+	.trend-icon {
+		margin-right: .5rem;
+	}
+
+	.frsh-title {
+		font-size: $font-size-sm;
+		font-weight: $headings-font-weight;
+	}
+	.frsh-score {
+		font-size: $font-size-h1;
+		font-weight: $display1-weight;
+		line-height: $line-height-lg;
+	}
+	.frsh-desc {
+		font-size: $font-size-sm;
+		color: $gray-light;
+	}
+}

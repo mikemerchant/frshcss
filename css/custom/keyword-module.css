@@ -1,0 +1,94 @@
+/*
+/* Keyword Module Styles
+/* *********************
+*/
+body {
+  background-color: #f7f7f9;
+}
+
+#keyword-top {
+  justify-content: space-between;
+  align-items: center;
+}
+
+#keyword-table td:nth-child(3), #keyword-table td:nth-child(4) {
+  font-size: 0.875rem;
+}
+
+#keyword-table td:nth-child(5) {
+  font-weight: bold;
+}
+
+#keyword-googlemaps-table td:nth-child(2),
+#keyword-google-mobile-table td:nth-child(2),
+#keyword-bing-table td:nth-child(2) {
+  font-size: 0.875rem;
+}
+
+#keyword-googlemaps-table td:last-child,
+#keyword-google-mobile-table td:last-child,
+#keyword-bing-table td:last-child {
+  font-weight: bold;
+}
+
+.custom-checkbox {
+  height: 1rem;
+  width: 1rem;
+}
+
+.custom-checkbox .custom-control-input {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+}
+
+.custom-checkbox .custom-control-indicator {
+  top: 0;
+  left: 0;
+  transition: all .3s ease;
+}
+
+.table-checkbox {
+  width: 2.5rem;
+}
+
+.card .table-checkbox {
+  width: 3.25rem;
+}
+
+.table-checkbox .custom-control {
+  display: block;
+  padding: 0;
+  margin-bottom: 0;
+}
+
+.frsh-card {
+  margin-bottom: 0.75rem;
+  padding: 1.5rem;
+  background-color: #eceeef;
+}
+
+.frsh-card .trend-icon {
+  margin-right: .5rem;
+}
+
+.frsh-card .frsh-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.frsh-card .frsh-score {
+  font-size: 2.5rem;
+  font-weight: 300;
+  line-height: 1.33333;
+}
+
+.frsh-card .frsh-desc {
+  font-size: 0.875rem;
+  color: #818a91;
+}

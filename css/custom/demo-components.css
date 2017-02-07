@@ -1,0 +1,12 @@
+/*
+/* Component Demo
+/* **************
+*/
+body {
+  background-color: #f7f7f9;
+}
+
+.color-box {
+  padding: 1rem;
+  margin-bottom: 1rem;
+}

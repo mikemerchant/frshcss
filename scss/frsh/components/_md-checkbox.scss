@@ -1,0 +1,208 @@
+//
+// variables
+// *********
+
+// sizes
+$md-cb-size: 1.5rem !default;
+
+// light theme
+$md-cb-color-off:      $gray-light !default;
+$md-cb-color-on:       $brand-success !default;
+$md-cb-color-disabled: $gray-lighter !default;
+$md-cb-check-color:    $white !default;
+
+$md-cb-ripple: 500ms !default;
+$md-cb-check: .3s !default;
+
+
+.table {
+	.md-checkbox {
+		margin: 0;
+		padding: 0;
+		label {
+			padding: 0;
+			margin: 0;
+		}
+		input[type="checkbox"] {
+			margin: 0;
+		}
+		input[type="checkbox"] + .checkbox {
+			position: relative;
+			display: block;
+			margin: 0;
+			top: 0;
+		}
+	}
+}
+
+
+//
+// material checkbox
+// *****************
+
+.md-checkbox {
+	margin: 0; // kill default label margins
+	transform: translateZ(0); // Force 3d rendering
+
+	.md-checkbox-input {
+		// hide this without using display:none
+		position: absolute;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		height: 1px; width: 1px;
+		margin: -1px; padding: 0; border: 0;
+
+		&:checked {
+			~ .md-checkbox-indicator {
+				color: $md-cb-color-on;
+
+				&:before {
+					animation: checkbox-on $md-cb-check forwards;
+				}
+			}
+		}
+	}
+
+	.md-checkbox-indicator {
+		// the checkbox
+		content: "";
+		position: relative;
+		display: inline-block;
+    	vertical-align: bottom; // fix vertical spacing
+		cursor: pointer;
+		
+		z-index: 1;
+		overflow: hidden;
+
+		height: $md-cb-size;
+		width: $md-cb-size;
+		border: 2px solid;
+		border-radius: .25rem;
+
+		color: $md-cb-color-off;
+
+		transition: all 0.3s ease;
+
+		&:before {
+			// the check
+			content: "";
+			position: absolute;
+			margin-top: -4px;
+			margin-left: 6px;
+			width: 0;
+			height: 0;
+			box-shadow:
+			0 0 0 0,
+			0 0 0 0,
+			0 0 0 0,
+			0 0 0 0,
+			0 0 0 0,
+			0 0 0 0,
+			0 0 0 0 inset;
+
+			transform: rotate(45deg);
+			animation: checkbox-off $md-cb-check forwards;
+		}
+	}
+}
+
+
+@keyframes checkbox-on {
+	0% {
+		box-shadow:
+		0 0 0 10px,
+		10px -10px 0 10px,
+		32px 0px 0 20px,
+		0px 32px 0 20px,
+		-5px 5px 0 10px,
+		15px 2px 0 11px;
+	}
+	50% {
+		box-shadow:
+		0 0 0 10px,
+		10px -10px 0 10px,
+		32px 0px 0 20px,
+		0px 32px 0 20px,
+		-5px 5px 0 10px,
+		20px 2px 0 11px;
+	}
+	100% {
+		box-shadow:
+		0 0 0 10px,
+		10px -10px 0 10px,
+		32px 0px 0 20px,
+		0px 32px 0 20px,
+		-5px 5px 0 10px,
+		20px -12px 0 11px;
+	}
+}
+
+@keyframes checkbox-off {
+	0% {
+		box-shadow:
+		0 0 0 10px,
+		10px -10px 0 10px,
+		32px 0px 0 20px,
+		0px 32px 0 20px,
+		-5px 5px 0 10px,
+		20px -12px 0 11px,
+		0 0 0 0 inset;
+	}
+
+	25% {
+		box-shadow:
+		0 0 0 10px,
+		10px -10px 0 10px,
+		32px 0px 0 20px,
+		0px 32px 0 20px,
+		-5px 5px 0 10px,
+		20px -12px 0 11px,
+		0 0 0 0 inset;
+	}
+	50% {
+		transform: rotate(45deg);
+		margin-top: -4px;
+		margin-left: 6px;
+		width: 0px;
+		height: 0px;
+		box-shadow:
+		0 0 0 10px,
+		10px -10px 0 10px,
+		32px 0px 0 20px,
+		0px 32px 0 20px,
+		-5px 5px 0 10px,
+		15px 2px 0 11px,
+		0 0 0 0 inset;
+	}
+	51% {
+		transform: rotate(0deg);
+		margin-top: -2px;
+		margin-left: -2px;
+		width: $md-cb-size;
+		height: $md-cb-size;
+		box-shadow:
+		0 0 0 0,
+		0 0 0 0,
+		0 0 0 0,
+		0 0 0 0,
+		0 0 0 0,
+		0 0 0 0,
+		0px 0px 0 10px inset;
+	}
+	100% {
+		transform: rotate(0deg);
+		margin-top: -2px;
+		margin-left: -2px;
+		width: $md-cb-size;
+		height: $md-cb-size;
+		box-shadow:
+		0 0 0 0,
+		0 0 0 0,
+		0 0 0 0,
+		0 0 0 0,
+		0 0 0 0,
+		0 0 0 0,
+		0px 0px 0 0px inset;
+	}
+}
+
