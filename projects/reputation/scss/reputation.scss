@@ -1,1 +1,60 @@
 // custom css for the reputation module
+
+@import "../../../scss/frsh/frsh-variables";
+
+//
+// the summary page 
+// 
+
+body {
+    background-color: $gray-lightest;
+}
+
+.card {
+	.d-flex > & {
+		flex: 1 1 auto;
+	}
+}
+
+.material-icons {
+	font-size: inherit;
+	line-height: inherit;
+    vertical-align: bottom;
+}
+
+// frsh-rating
+.frsh-rating {
+	display: flex;
+	flex: 1;
+	justify-content: space-between;
+
+	// add this class for larger rating
+	&.frsh-rating-lg {
+		font-size: 2rem;
+		justify-content: center;
+		align-items: center;
+		.frsh-rating-stats {
+			font-size: 1.25rem;
+		}
+	}
+	
+	// rest of styles for normal size rating
+	.frsh-rating-score {}
+
+	.frsh-rating-stars {
+		display: flex;
+		.star {
+			color: $brand-warning;
+		}
+		.star-half {
+			background: linear-gradient(to right, $brand-warning 0%, $brand-warning 50%, $gray-lighter 50%, $gray-lighter 100%);
+			-webkit-background-clip: text;
+  			-webkit-text-fill-color: transparent;
+		}
+		.star-zero {
+			color: $gray-lighter;
+		}
+	}
+
+	.frsh-rating-stats {}
+}

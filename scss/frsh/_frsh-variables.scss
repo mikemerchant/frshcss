@@ -1,0 +1,30 @@
+// My Variables
+
+// Start with assigning color names to specific hex values.
+$white:  #fff !default;
+$black:  #000 !default;
+$red:    #F44336 !default;
+$orange: #e97d27 !default;
+$yellow: #ffd500 !default;
+$green:  #00BFA5 !default;
+$blue:   #095387 !default;
+$teal:   #137DC8 !default;
+$pink:   #ff5b77 !default;
+$purple: #613d7c !default;
+
+// Create grayscale
+$gray-dark:                 #373a3c;
+$gray:                      #55595c;
+$gray-light:                #818a91;
+$gray-lighter:              #eceeef;
+$gray-lightest:             #f7f7f9;
+
+// Reassign color vars to semantic color scheme
+$brand-primary:             #095387;
+$brand-success:             #00BFA5;
+$brand-info:                #137DC8;
+$brand-warning:             #FF943E;
+$brand-danger:              #F44336;
+$brand-inverse:             $gray-dark;
+
+$font-family-sans-serif: 'Roboto', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
