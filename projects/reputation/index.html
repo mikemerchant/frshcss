@@ -59,7 +59,7 @@
 		<div class="container">
 
 			<div class="row">
-				<div class="col-lg d-flex">
+				<div class="col-lg-6 d-flex">
 					<div class="card mb-4">
 						<div class="card-block">
 							<h3 class="card-title text-center">Current Average Rating</h3>
@@ -121,13 +121,11 @@
 
 					</div>
 				</div>
-				<div class="col-lg d-flex">
+				<div class="col-lg-6 d-flex">
 					<div class="card mb-4">
 						<div class="card-block">
-							<h3 class="card-title text-center">Card title</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius aspernatur voluptate laudantium sunt saepe quod, temporibus atque vel, laboriosam consectetur tempore possimus deserunt maiores sapiente tempora deleniti odit! Sapiente, maxime!</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius aspernatur voluptate laudantium sunt saepe quod, temporibus atque vel, laboriosam consectetur tempore possimus deserunt maiores sapiente tempora deleniti odit! Sapiente, maxime!</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius aspernatur voluptate laudantium sunt saepe quod, temporibus atque vel, laboriosam consectetur tempore possimus deserunt maiores sapiente tempora deleniti odit! Sapiente, maxime!</p>
+							<h3 class="card-title text-center">Total Star Distribution</h3>
+							<canvas id="totalStarDistribution"></canvas>
 						</div>
 					</div>
 				</div>
@@ -137,34 +135,34 @@
 				<div class="col-lg d-flex">
 					<div class="card mb-4">
 						<div class="card-block">
-							<h3 class="card-title text-center">Card title</h3>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							<h3 class="card-title text-center">Number of Reviews</h3>
+							<canvas id="numberOfReviews"></canvas>
 						</div>
 					</div>
 				</div>
 				<div class="col-lg d-flex">
 					<div class="card mb-4">
 						<div class="card-block">
-							<h3 class="card-title text-center">Card title</h3>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							<h3 class="card-title text-center">Rating Over Time</h3>
+							<canvas id="ratingOverTime"></canvas>
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<div class="row">
-				<div class="col-lg-4 d-flex">
+				<div class="col-lg-6 col-xl-4 d-flex">
 					<div class="card mb-4">
 						<div class="card-block">
-							<h3 class="card-title text-center">Card title</h3>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+							<h3 class="card-title text-center">Review Sources</h3>
+							<canvas id="reviewSources"></canvas>
 						</div>
 					</div>
 				</div>
-				<div class="col-lg-8 d-flex">
+				<div class="col-lg-6 col-xl-8 d-flex">
 					<div class="card mb-4">
 						<div class="card-block">
-							<h3 class="card-title">Card title</h3>
+							<h3 class="card-title">Last Negative Review</h3>
 							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
 						</div>
 					</div>
@@ -178,6 +176,209 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
 	<script src="../../js/bootstrap/bootstrap.min.js"></script>
+
+	<!-- ChartJS -->
+	<script src="../../js/chartjs/Chart.bundle.min.js"></script>
+
+	<script>
+
+		Chart.defaults.global.defaultFontFamily = "Roboto";
+		Chart.defaults.global.defaultFontColor = "#55595c";
+		Chart.defaults.global.defaultFontSize = 12;
+
+		Chart.defaults.global.responsive = true;
+		
+		Chart.defaults.global.title.padding = 12;
+
+		Chart.defaults.global.legend.labels.boxWidth = 40;
+		Chart.defaults.global.legend.labels.padding = 12;
+
+		Chart.defaults.global.tooltips.backgroundColor = "rgba(0,0,0,0.75)";
+		Chart.defaults.global.tooltips.titleSpacing = 2;
+		Chart.defaults.global.tooltips.titleMarginBottom = 6;
+		Chart.defaults.global.tooltips.bodySpacing = 2;
+		Chart.defaults.global.tooltips.footerSpacing = 2;
+		Chart.defaults.global.tooltips.footerMarginTop = 6;
+		Chart.defaults.global.tooltips.xPadding = 6;
+		Chart.defaults.global.tooltips.yPadding = 6;
+		Chart.defaults.global.tooltips.caretSize = 5;
+		Chart.defaults.global.tooltips.cornerRadius = 6;
+
+		//Chart.defaults.global.elements.line
+		//Chart.defaults.global.elements.point
+
+		var totalStarDistributionConfig = {
+            type: 'horizontalBar',
+            data: {
+                labels: ["5 Star", "4 Star", "3 Star", "2 Star", "1 Star"],
+                datasets: [{
+                    label: "Reviews",
+                    backgroundColor: [
+						"rgba(255, 99, 132, 0.2)",
+						"rgba(54, 162, 235, 0.2)",
+						"rgba(255, 206, 86, 0.2)",
+						"rgba(75, 192, 192, 0.2)",
+						"rgba(153, 102, 255, 0.2)"
+					],
+            		borderWidth: 0,
+                    data: [21, 12, 43, 4, 14]
+                }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    display: false
+                },
+				scales: {
+					xAxes: [{
+						display: false,
+						gridLines: {
+							display: false,
+                    		drawBorder: false
+						}
+					}],
+					yAxes: [{
+						gridLines: {
+							display: false,
+                    		drawBorder: false
+						},
+						categoryPercentage: .9,
+						barPercentage: .9
+					}]
+				}
+            }
+        };
+
+		var numberOfReviewsConfig = {
+            type: 'line',
+            data: {
+                labels: ["January", "February", "March", "April", "May"],
+                datasets: [{
+                    label: "My First dataset",
+                    backgroundColor: "#000",
+                    borderColor: "#000",
+                    data: [1, 2, 3, 4, 5],
+                    fill: false,
+                }, {
+                    label: "My Second dataset",
+                    fill: false,
+                    backgroundColor: "#000",
+                    borderColor: "#000",
+                    data: [2, 3, 1, 5, 4],
+                }]
+            },
+            options: {
+                responsive: true,
+                title:{
+                    display:true,
+                    text:'Chart.js Line Chart'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Month'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Value'
+                        }
+                    }]
+                }
+            }
+        };
+
+		var ratingOverTimeConfig = {
+            type: 'bar',
+            data: {
+                labels: ["January", "February", "March", "April", "May"],
+                datasets: [{
+                    backgroundColor: "#000",
+            		borderWidth: 0,
+                    data: [1, 2, 3, 4, 5]
+                }]
+            },
+            options: {
+                responsive: true,
+                legend: {
+                    display: false
+                },
+				scales: {
+					xAxes: [{
+						display: true,
+						gridLines: {
+							display: true,
+                    		drawBorder: false
+						}
+					}],
+					yAxes: [{
+						gridLines: {
+							display: true,
+                    		drawBorder: false
+						},
+                        ticks: {
+                            min: 0,
+                            max: 5
+                        },
+						categoryPercentage: .9,
+						barPercentage: .9
+					}]
+				}
+            }
+        };
+
+		var reviewSourcesConfig = {
+			type: 'pie',
+			data: {
+				datasets: [{
+					data: [23, 57, 68],
+					backgroundColor: [
+						"#786",
+						"#234",
+						"#684"
+					],
+					label: 'Dataset 1'
+				}],
+				labels: [
+					"Red",
+					"Orange",
+					"Yellow"
+				]
+			},
+			options: {
+				responsive: true
+			}
+		};
+
+		window.onload = function () {
+
+			var ctx1 = document.getElementById("totalStarDistribution").getContext("2d");
+			window.totalStarDistributionBar = new Chart(ctx1, totalStarDistributionConfig);
+
+            var ctx2 = document.getElementById("numberOfReviews").getContext("2d");
+            window.numberOfReviewsLine = new Chart(ctx2, numberOfReviewsConfig);
+
+            var ctx3 = document.getElementById("ratingOverTime").getContext("2d");
+            window.ratingOverTimeBar = new Chart(ctx3, ratingOverTimeConfig);
+
+            var ctx4 = document.getElementById("reviewSources").getContext("2d");
+            window.reviewSourcesPie = new Chart(ctx4, reviewSourcesConfig);
+
+		};
+	</script>
+
 </body>
 
 </html>
