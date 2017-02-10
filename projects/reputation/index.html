@@ -64,7 +64,7 @@
 						<div class="card-block">
 							<h3 class="card-title text-center">Current Average Rating</h3>
 
-							<div class="frsh-rating frsh-rating-lg">
+							<div class="frsh-rating frsh-rating-xl">
 								<div class="frsh-rating-score mr-2">3.7</div>
 								<div class="frsh-rating-stars mr-3">
 									<i class="material-icons star">star</i>
@@ -163,7 +163,56 @@
 					<div class="card mb-4">
 						<div class="card-block">
 							<h3 class="card-title">Last Negative Review</h3>
-							<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+
+							<div class="frsh-review">
+								<div class="frsh-review-header">
+									<div class="frsh-profile">
+										<div class="frsh-profile-img">
+											<img class="rounded" src="img/users/44.jpg">
+										</div>
+										<div class="frsh-profile-name">
+											<div class="profile-name">Rhonda Fletcher</div>
+											<div class="profile-meta">
+												<div class="source">Yelp</div>
+												<div>&middot;</div>
+												<div class="time">8/10/2016 5:41 am</div>
+											</div>
+										</div>
+										<div class="frsh-review-action">
+											<div class="dropdown">
+												<a class="frsh-action" href="#" id="negReviewAction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">more_horiz</i></a>
+
+												<div class="dropdown-menu dropdown-menu-right" aria-labelledby="negReviewAction">
+													<a class="dropdown-item" href="#">Action</a>
+													<a class="dropdown-item" href="#">Another action</a>
+													<a class="dropdown-item" href="#">Something else here</a>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="frsh-review-content">
+									<div class="frsh-rating frsh-rating-lg mb-2">
+										<div class="frsh-rating-score mr-1">2.0</div>
+										<div class="frsh-rating-stars mr-1">
+											<i class="material-icons star">star</i>
+											<i class="material-icons star">star</i>
+											<i class="material-icons star star-zero">star</i>
+											<i class="material-icons star star-zero">star</i>
+											<i class="material-icons star star-zero">star</i>
+										</div>
+										<div class="frsh-rating-sentiment">
+											<i class="material-icons">sentiment_neutral</i>
+										</div>
+									</div>
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ducimus commodi dolorum expedita unde, deserunt saepe odit tempore voluptas necessitatibus, sit sequi recusandae quisquam ea dolore ex numquam harum, provident!</p>
+								</div>
+								<div class="frsh-review-footer">
+									<a href="#" class="btn btn-link">Share on Facebook</a>
+									<a href="#" class="btn btn-link">Send a Tweet</a>
+								</div>
+							</div>
+
 						</div>
 					</div>
 				</div>
@@ -187,20 +236,21 @@
 		Chart.defaults.global.defaultFontSize = 12;
 
 		Chart.defaults.global.responsive = true;
-		
 		Chart.defaults.global.title.padding = 12;
 
+		Chart.defaults.global.legend.position = "bottom";
 		Chart.defaults.global.legend.labels.boxWidth = 40;
-		Chart.defaults.global.legend.labels.padding = 12;
+		Chart.defaults.global.legend.labels.padding = 24;
 
-		Chart.defaults.global.tooltips.backgroundColor = "rgba(0,0,0,0.75)";
-		Chart.defaults.global.tooltips.titleSpacing = 2;
-		Chart.defaults.global.tooltips.titleMarginBottom = 6;
-		Chart.defaults.global.tooltips.bodySpacing = 2;
-		Chart.defaults.global.tooltips.footerSpacing = 2;
-		Chart.defaults.global.tooltips.footerMarginTop = 6;
-		Chart.defaults.global.tooltips.xPadding = 6;
-		Chart.defaults.global.tooltips.yPadding = 6;
+		Chart.defaults.global.tooltips.backgroundColor = "#373a3c";
+		Chart.defaults.global.tooltips.titleFontSize = 14;
+		Chart.defaults.global.tooltips.titleSpacing = 8;
+		Chart.defaults.global.tooltips.titleMarginBottom = 12;
+		Chart.defaults.global.tooltips.bodySpacing = 8;
+		Chart.defaults.global.tooltips.footerSpacing = 8;
+		Chart.defaults.global.tooltips.footerMarginTop = 12;
+		Chart.defaults.global.tooltips.xPadding = 8;
+		Chart.defaults.global.tooltips.yPadding = 8;
 		Chart.defaults.global.tooltips.caretSize = 5;
 		Chart.defaults.global.tooltips.cornerRadius = 6;
 
@@ -214,11 +264,11 @@
                 datasets: [{
                     label: "Reviews",
                     backgroundColor: [
-						"rgba(255, 99, 132, 0.2)",
-						"rgba(54, 162, 235, 0.2)",
-						"rgba(255, 206, 86, 0.2)",
-						"rgba(75, 192, 192, 0.2)",
-						"rgba(153, 102, 255, 0.2)"
+						"#FF943E",
+						"#FAAB6A",
+						"#F6C197",
+						"#F1D8C3",
+						"#ECEEEF"
 					],
             		borderWidth: 0,
                     data: [21, 12, 43, 4, 14]
@@ -228,6 +278,13 @@
                 responsive: true,
                 legend: {
                     display: false
+                },
+                tooltips: {
+					callbacks: {
+						label: function(tooltipItems, data) {
+							return " " + tooltipItems.xLabel + " Reviews";
+						},
+					}
                 },
 				scales: {
 					xAxes: [{
@@ -242,7 +299,10 @@
 							display: false,
                     		drawBorder: false
 						},
-						categoryPercentage: .9,
+						ticks: {
+							fontStyle: "bold"
+						},
+						categoryPercentage: 1,
 						barPercentage: .9
 					}]
 				}
@@ -254,47 +314,65 @@
             data: {
                 labels: ["January", "February", "March", "April", "May"],
                 datasets: [{
-                    label: "My First dataset",
-                    backgroundColor: "#000",
-                    borderColor: "#000",
-                    data: [1, 2, 3, 4, 5],
-                    fill: false,
+                    label: "Total Reviews",
+                    data: [98, 122, 165, 210, 239],
+					borderWidth: 3,
+                    borderColor: "#00BFA5",
+					pointBackgroundColor: "#00BFA5",
+                    backgroundColor: "#00BFA5",
+            		pointRadius: 0,
+            		pointBorderWidth: 3,
+            		pointHoverBorderWidth: 3,
+					fill: false
                 }, {
-                    label: "My Second dataset",
-                    fill: false,
-                    backgroundColor: "#000",
-                    borderColor: "#000",
-                    data: [2, 3, 1, 5, 4],
+                    label: "Standard Reviews",
+                    data: [72, 91, 124, 130, 148],
+					borderWidth: 2,
+                    borderColor: "#ccc",
+                    backgroundColor: "#ccc",
+            		pointRadius: 0,
+            		pointBorderWidth: 2,
+            		pointHoverBorderWidth: 2,
+					fill: false
+                }, {
+                    label: "Verticals Reviews",
+                    data: [26, 31, 41, 80, 91],
+					borderWidth: 2,
+                    borderColor: "#ccc",
+                    backgroundColor: "#ccc",
+            		pointRadius: 0,
+            		pointBorderWidth: 2,
+            		pointHoverBorderWidth: 2,
+					fill: false
                 }]
             },
             options: {
                 responsive: true,
-                title:{
-                    display:true,
-                    text:'Chart.js Line Chart'
-                },
                 tooltips: {
                     mode: 'index',
                     intersect: false,
+					callbacks: {
+						label: function(tooltipItems, data) {
+							return " " + data.datasets[tooltipItems.datasetIndex].label + ": " + tooltipItems.yLabel;
+						},
+					}
                 },
                 hover: {
                     mode: 'nearest',
-                    intersect: true
+                    intersect: false
                 },
                 scales: {
                     xAxes: [{
                         display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Month'
-                        }
+						gridLines: {
+							zeroLineColor: "rgba(0,0,0,0)"
+						},
                     }],
                     yAxes: [{
                         display: true,
-                        scaleLabel: {
-                            display: true,
-                            labelString: 'Value'
-                        }
+						gridLines: {
+							zeroLineColor: "rgba(0,0,0,0)"
+						},
                     }]
                 }
             }
@@ -305,13 +383,21 @@
             data: {
                 labels: ["January", "February", "March", "April", "May"],
                 datasets: [{
-                    backgroundColor: "#000",
+                    label: "Average Rating",
+                    backgroundColor: "#FF943E",
             		borderWidth: 0,
-                    data: [1, 2, 3, 4, 5]
+                    data: [3.2, 2.9, 3.6, 4.1, 4.5]
                 }]
             },
             options: {
                 responsive: true,
+                tooltips: {
+					callbacks: {
+						label: function(tooltipItems, data) {
+							return " " + data.datasets[tooltipItems.datasetIndex].label + ": " + tooltipItems.yLabel;
+						},
+					}
+                },
                 legend: {
                     display: false
                 },
@@ -319,21 +405,20 @@
 					xAxes: [{
 						display: true,
 						gridLines: {
-							display: true,
-                    		drawBorder: false
-						}
+							display: false
+						},
+						categoryPercentage: 1,
+						barPercentage: .9
 					}],
 					yAxes: [{
 						gridLines: {
 							display: true,
-                    		drawBorder: false
+							zeroLineColor: "rgba(0,0,0,0)"
 						},
                         ticks: {
                             min: 0,
                             max: 5
-                        },
-						categoryPercentage: .9,
-						barPercentage: .9
+                        }
 					}]
 				}
             }
@@ -344,21 +429,33 @@
 			data: {
 				datasets: [{
 					data: [23, 57, 68],
-					backgroundColor: [
-						"#786",
-						"#234",
-						"#684"
+					borderWidth: 0,
+					borderColor: [
+						"#4285f4",
+						"#d32323",
+						"#ffb900"
 					],
-					label: 'Dataset 1'
+					backgroundColor: [
+						"#4285f4",
+						"#d32323",
+						"#ffb900"
+					]
 				}],
 				labels: [
-					"Red",
-					"Orange",
-					"Yellow"
+					"Google",
+					"Yelp",
+					"Bing"
 				]
 			},
 			options: {
-				responsive: true
+				responsive: true,
+                tooltips: {
+					callbacks: {
+						label: function(tooltipItems, data) {
+							return " " + data.labels[tooltipItems.index] + ": " + data.datasets[0].data[tooltipItems.index] + " Reviews";
+						},
+					}
+                }
 			}
 		};
 

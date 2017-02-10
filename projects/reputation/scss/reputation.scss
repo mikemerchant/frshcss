@@ -1,6 +1,8 @@
 // custom css for the reputation module
 
 @import "../../../scss/frsh/frsh-variables";
+@import "../../../scss/bootstrap/variables";
+@import "../../../scss/bootstrap/mixins";
 
 //
 // the summary page 
@@ -25,21 +27,12 @@ body {
 // frsh-rating
 .frsh-rating {
 	display: flex;
-	flex: 1;
-	justify-content: space-between;
-
-	// add this class for larger rating
-	&.frsh-rating-lg {
-		font-size: 2rem;
-		justify-content: center;
-		align-items: center;
-		.frsh-rating-stats {
-			font-size: 1.25rem;
-		}
-	}
 	
-	// rest of styles for normal size rating
-	.frsh-rating-score {}
+	// the score
+	.frsh-rating-score {
+		font-weight: 500;
+		color: $brand-warning;
+	}
 
 	.frsh-rating-stars {
 		display: flex;
@@ -55,6 +48,102 @@ body {
 			color: $gray-lighter;
 		}
 	}
+	.frsh-rating-sentiment { color: $gray-light; }
 
-	.frsh-rating-stats {}
+	// add this class for larger rating
+	&.frsh-rating-md {
+		font-size: 1.25rem;
+	}
+	&.frsh-rating-lg {
+		font-size: 1.5rem;
+		.frsh-rating-stats {
+			font-size: 1.25rem;
+		}
+	}
+	&.frsh-rating-xl {
+		font-size: 2.5rem;
+		.frsh-rating-stats {
+			font-size: 1.25rem;
+		}
+	}
+}
+
+
+// Review Module (maybe tweets as well)
+.frsh-review {
+	border: 1px solid $gray-lighter;
+	border-radius: $border-radius;
+	padding: $spacer;
+	.frsh-review-header {
+		margin-bottom: .75rem;
+	}
+	.frsh-review-footer {
+		font-size: $font-size-sm;
+		font-weight: 500;
+	}
+}
+
+
+
+
+
+
+// Use it in the review or wherever
+.frsh-profile {
+	display: flex;
+	flex-flow: row nowrap;
+	align-items: center;
+}
+
+.frsh-profile-img {
+	margin-right: 1rem;
+	img {
+		display: block;
+		height: 3rem;
+		width: 3rem;
+		object-fit: cover;
+	}
+}
+
+.frsh-profile-name {
+	.profile-name {
+		font-size: $font-size-lg;
+		line-height: $headings-line-height;
+		font-weight: $headings-font-weight;
+		margin-bottom: .25rem;
+	}
+	.profile-meta {
+		display: flex;
+		flex-flow: row nowrap;
+		font-size: $font-size-sm;
+		color: $gray-light;
+		div {
+			margin-right: .5rem;
+			&:last-child {
+				margin-right: 0;
+			}
+		}
+	}
+}
+
+.frsh-review-action {
+	margin-left: auto;
+}
+
+
+
+
+
+
+
+// FRSH ACTION! Use these for icons that are buttons but not buttons... 48px height and usually square/circle
+.frsh-action {
+	display: block;
+	font-size: 2rem;
+	line-height: 3rem;
+	height: 3rem;
+	width: 3rem;
+	text-align: center;
+
+	color: $gray-light;
 }

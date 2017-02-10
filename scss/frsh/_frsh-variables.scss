@@ -28,3 +28,12 @@ $brand-danger:              #F44336;
 $brand-inverse:             $gray-dark;
 
 $font-family-sans-serif: 'Roboto', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+// SPACE
+$spacer: 1rem; // double this to make 1.5rem aka mb-4 aka 24px
+
+$grid-gutter-width-base: $spacer * 1.5;
+
+$border-radius:          .25rem; // 4
+$border-radius-lg:       .5rem; // 8
+$border-radius-sm:       .2rem; // 3
