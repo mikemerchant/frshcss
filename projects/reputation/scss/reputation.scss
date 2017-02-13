@@ -186,26 +186,6 @@ body {
 
 
 
-// Social Buttons
-.social-btn-img {
-	display: inline-block;
-	height: $font-size-sm;	
-	width: auto;
-	color: #fff;
-}
-.btn-twitter {
-  @include button-variant(#fff, #1da1f2, #1da1f2);
-}
-.btn-facebook {
-  @include button-variant(#fff, #3b5998, #3b5998);
-}
-
-
-
-
-
-
-
 // use this for a timer on the reputation page top card section
 .frsh-card-update {
 	position: absolute;
