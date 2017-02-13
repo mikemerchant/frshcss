@@ -13,18 +13,18 @@ $pink:   #ff5b77 !default;
 $purple: #613d7c !default;
 
 // Create grayscale
-$gray-dark:                 #373a3c;
-$gray:                      #55595c;
-$gray-light:                #818a91;
-$gray-lighter:              #eceeef;
-$gray-lightest:             #f7f7f9;
+$gray-dark:                 #373a3c; // 24%
+$gray:                      #55595c; // 36%
+$gray-light:                #818a91; // 54%
+$gray-lighter:              #eceeef; // 93%
+$gray-lightest:             #f7f7f9; // 97%
 
 // Reassign color vars to semantic color scheme
-$brand-primary:             #095387;
-$brand-success:             #00BFA5;
-$brand-info:                #137DC8;
-$brand-warning:             #FF943E;
-$brand-danger:              #F44336;
+$brand-primary:             #34495e;
+$brand-success:             #1abc9c;
+$brand-info:                #3498db;
+$brand-warning:             #f39c12;
+$brand-danger:              #e74c3c;
 $brand-inverse:             $gray-dark;
 
 $font-family-sans-serif: 'Roboto', -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
@@ -37,3 +37,5 @@ $grid-gutter-width-base: $spacer * 1.5;
 $border-radius:          .25rem; // 4
 $border-radius-lg:       .5rem; // 8
 $border-radius-sm:       .2rem; // 3
+
+$headings-margin-bottom: $spacer;

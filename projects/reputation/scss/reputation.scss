@@ -9,7 +9,11 @@
 // 
 
 body {
-    background-color: $gray-lighter;
+    background-color: #ecf0f1;
+}
+
+// make my cards quick and dirty
+.card-frsh {
 }
 
 .card {
@@ -27,46 +31,57 @@ body {
 // frsh-rating
 .frsh-rating {
 	display: flex;
-	
-	// the score
-	.frsh-rating-score {
-		font-weight: 500;
-		color: $brand-warning;
-	}
-
-	.frsh-rating-stars {
-		display: flex;
-		.star {
-			color: $brand-warning;
-		}
-		.star-half {
-			background: linear-gradient(to right, $brand-warning 0%, $brand-warning 50%, $gray-lighter 50%, $gray-lighter 100%);
-			-webkit-background-clip: text;
-  			-webkit-text-fill-color: transparent;
-		}
-		.star-zero {
-			color: $gray-lighter;
-		}
-	}
-	.frsh-rating-sentiment { color: $gray-light; }
+	align-items: center;
 
 	// add this class for larger rating
-	&.frsh-rating-md {
-		font-size: 1.25rem;
-	}
 	&.frsh-rating-lg {
 		font-size: 1.5rem;
+		line-height: $headings-line-height;
 		.frsh-rating-stats {
-			font-size: 1.25rem;
+			font-size: 1rem;
 		}
 	}
 	&.frsh-rating-xl {
+		flex-flow: column nowrap;
+		justify-content: center;
+		flex: 1 1 auto;
 		font-size: 2.5rem;
+		line-height: $headings-line-height;
 		.frsh-rating-stats {
 			font-size: 1.25rem;
 		}
 	}
 }
+	
+// the score
+.frsh-rating-score {
+	font-weight: 500;
+	color: $brand-warning;
+}
+
+.frsh-rating-stars {
+	display: flex;
+	.star {
+		color: $brand-warning;
+	}
+	.star-half {
+		background: linear-gradient(to right, $brand-warning 0%, $brand-warning 50%, $gray-lighter 50%, $gray-lighter 100%);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+	}
+	.star-zero {
+		color: $gray-lighter;
+	}
+}
+.frsh-rating-sentiment {
+	color: $gray-light;
+}
+.frsh-rating-stats {
+	color: $gray-light;
+}
+
+
+
 
 
 // Review Module (maybe tweets as well)
@@ -75,13 +90,29 @@ body {
 	border-radius: $border-radius;
 	padding: $spacer;
 	.frsh-review-header {
-		margin-bottom: .75rem;
+		margin-bottom: 1.5rem;
 	}
-	.frsh-review-footer {
-		font-size: $font-size-sm;
-		font-weight: 500;
+	.frsh-review-content {
+		p:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
+
+@include media-breakpoint-up(lg) {
+	.position-relative {
+		position: relative;
+	}
+	.frsh-limit {
+		// put this inside a flex item to limit the height 
+		position: absolute;
+		top: 0; bottom: 0; left: 0; right: 0;
+		padding: 1rem;
+		overflow-y: auto;
+	}
+}
+
+
 
 
 
@@ -115,6 +146,7 @@ body {
 	.profile-meta {
 		display: flex;
 		flex-flow: row nowrap;
+		align-items: center;
 		font-size: $font-size-sm;
 		color: $gray-light;
 		div {
@@ -122,6 +154,10 @@ body {
 			&:last-child {
 				margin-right: 0;
 			}
+		}
+		img {
+			height: $font-size-sm * 1.5;
+			width: auto;
 		}
 	}
 }
@@ -145,5 +181,36 @@ body {
 	width: 3rem;
 	text-align: center;
 
+	color: $gray-light;
+}
+
+
+
+// Social Buttons
+.social-btn-img {
+	display: inline-block;
+	height: $font-size-sm;	
+	width: auto;
+	color: #fff;
+}
+.btn-twitter {
+  @include button-variant(#fff, #1da1f2, #1da1f2);
+}
+.btn-facebook {
+  @include button-variant(#fff, #3b5998, #3b5998);
+}
+
+
+
+
+
+
+
+// use this for a timer on the reputation page top card section
+.frsh-card-update {
+	position: absolute;
+	top: 1.25rem;
+	right: 1.25rem;
+	font-size: $font-size-sm;
 	color: $gray-light;
 }
