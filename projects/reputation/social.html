@@ -60,10 +60,13 @@
 			<div class="row">
 				<div class="col-lg-6 d-flex">
 					<div class="card mb-4">
-						<div class="card-block d-flex flex-column">
-							<h3 class="card-title">Audience</h3>
-							<div class="frsh-score">2654</div>
+						<div class="card-block">
+							<h3 class="card-title text-center">Audience</h3>
+							<div class="frsh-social-score">2654</div>
+							
+							<canvas id="audienceOverTime"></canvas>
 
+							<h4 class="text-center mt-5 mb-3">Audience Breakdown</h4>
 						</div>
 
 					</div>
@@ -71,9 +74,12 @@
 				<div class="col-lg-6 d-flex">
 					<div class="card mb-4">
 						<div class="card-block">
-							<h3 class="card-title">Activity</h3>
-							<div class="frsh-score">954</div>
-							<canvas id="totalStarDistribution"></canvas>
+							<h3 class="card-title text-center">Activity</h3>
+							<div class="frsh-social-score">954</div>
+
+							<canvas id="activityOverTime"></canvas>
+
+							<h4 class="text-center mt-5 mb-3">Activity Breakdown</h4>
 						</div>
 					</div>
 				</div>
@@ -101,7 +107,7 @@
 
 		Chart.defaults.global.legend.position = "bottom";
 		Chart.defaults.global.legend.labels.boxWidth = 40;
-		Chart.defaults.global.legend.labels.padding = 24;
+		Chart.defaults.global.legend.labels.padding = 18;
 
 		Chart.defaults.global.tooltips.backgroundColor = "#373a3c";
 		Chart.defaults.global.tooltips.titleFontSize = 14;
@@ -115,62 +121,115 @@
 		Chart.defaults.global.tooltips.caretSize = 5;
 		Chart.defaults.global.tooltips.cornerRadius = 6;
 
-		//Chart.defaults.global.elements.line
-		//Chart.defaults.global.elements.point
-
-		var totalStarDistributionConfig = {
-            type: 'horizontalBar',
+		var audienceOverTimeConfig = {
+            type: 'line',
             data: {
-                labels: ["5 Star", "4 Star", "3 Star", "2 Star", "1 Star"],
+                labels: ["January", "February", "March", "April", "May"],
                 datasets: [{
-                    label: "Reviews",
-                    backgroundColor: [
-						"rgba(26, 188, 156,1.0)",
-						"rgba(26, 188, 156,.9)",
-						"rgba(26, 188, 156,.8)",
-						"rgba(26, 188, 156,.7)",
-						"rgba(26, 188, 156,.6)",
-					],
-            		borderWidth: 0,
-                    data: [21, 12, 43, 4, 14]
+                    label: "Total Audience",
+                    data: [989, 1222, 2105, 2140, 2654],
+					borderWidth: 3,
+                    borderColor: "#1abc9c",
+					pointBackgroundColor: "#1abc9c",
+                    backgroundColor: "#1abc9c",
+            		pointRadius: 0,
+            		pointBorderWidth: 3,
+            		pointHoverBorderWidth: 3,
+					fill: false
+                }, {
+                    label: "Twitter Followers",
+                    data: [372, 990, 1410, 1400, 1448],
+					borderWidth: 2,
+                    borderColor: "#bdc3c7",
+                    backgroundColor: "#bdc3c7",
+            		pointRadius: 0,
+            		pointBorderWidth: 2,
+            		pointHoverBorderWidth: 2,
+					fill: false
+                }, {
+                    label: "Friends",
+                    data: [60, 61, 80, 80, 87],
+					borderWidth: 2,
+                    borderColor: "#bdc3c7",
+                    backgroundColor: "#bdc3c7",
+            		pointRadius: 0,
+            		pointBorderWidth: 2,
+            		pointHoverBorderWidth: 2,
+					fill: false
+                }, {
+                    label: "Retweets",
+                    data: [295, 280, 290, 80, 230],
+					borderWidth: 2,
+                    borderColor: "#bdc3c7",
+                    backgroundColor: "#bdc3c7",
+            		pointRadius: 0,
+            		pointBorderWidth: 2,
+            		pointHoverBorderWidth: 2,
+					fill: false
+                }, {
+                    label: "Likes",
+                    data: [26, 201, 308, 89, 105],
+					borderWidth: 2,
+                    borderColor: "#bdc3c7",
+                    backgroundColor: "#bdc3c7",
+            		pointRadius: 0,
+            		pointBorderWidth: 2,
+            		pointHoverBorderWidth: 2,
+					fill: false
+                }, {
+                    label: "G+ Followers",
+                    data: [309, 322, 341, 380, 391],
+					borderWidth: 2,
+                    borderColor: "#bdc3c7",
+                    backgroundColor: "#bdc3c7",
+            		pointRadius: 0,
+            		pointBorderWidth: 2,
+            		pointHoverBorderWidth: 2,
+					fill: false
                 }]
             },
             options: {
                 responsive: true,
-                legend: {
-                    display: false
-                },
+				title: {
+					display: true,
+					text: 'Audience over time',
+					fontSize: 14
+				},
+				legend: {
+					display: false
+				},
                 tooltips: {
+                    mode: 'index',
+                    intersect: false,
 					callbacks: {
 						label: function(tooltipItems, data) {
-							return " " + tooltipItems.xLabel + " Reviews";
+							return " " + data.datasets[tooltipItems.datasetIndex].label + ": " + tooltipItems.yLabel;
 						},
 					}
                 },
-				scales: {
-					xAxes: [{
-						display: false,
+                hover: {
+                    mode: 'nearest',
+                    intersect: false
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
 						gridLines: {
-							display: false,
-                    		drawBorder: false
-						}
-					}],
-					yAxes: [{
+							zeroLineColor: "rgba(0,0,0,0)"
+						},
+                    }],
+                    yAxes: [{
+                        display: true,
 						gridLines: {
-							display: false,
-                    		drawBorder: false
+							zeroLineColor: "rgba(0,0,0,0)"
 						},
-						ticks: {
-							fontStyle: "bold"
-						},
-						categoryPercentage: 1,
-						barPercentage: .9
-					}]
-				}
+                    }]
+                }
             }
         };
 
-		var numberOfReviewsConfig = {
+
+		var activityOverTimeConfig = {
             type: 'line',
             data: {
                 labels: ["January", "February", "March", "April", "May"],
@@ -209,6 +268,14 @@
             },
             options: {
                 responsive: true,
+				title: {
+					display: true,
+					text: 'Activity over time',
+					fontSize: 14
+				},
+				legend: {
+					display: false
+				},
                 tooltips: {
                     mode: 'index',
                     intersect: false,
@@ -239,101 +306,12 @@
             }
         };
 
-		var ratingOverTimeConfig = {
-            type: 'bar',
-            data: {
-                labels: ["January", "February", "March", "April", "May"],
-                datasets: [{
-                    label: "Average Rating",
-                    backgroundColor: "#1abc9c",
-            		borderWidth: 0,
-                    data: [3.2, 2.9, 3.6, 4.1, 4.5]
-                }]
-            },
-            options: {
-                responsive: true,
-                tooltips: {
-					callbacks: {
-						label: function(tooltipItems, data) {
-							return " " + data.datasets[tooltipItems.datasetIndex].label + ": " + tooltipItems.yLabel;
-						},
-					}
-                },
-                legend: {
-                    display: false
-                },
-				scales: {
-					xAxes: [{
-						display: true,
-						gridLines: {
-							display: false
-						},
-						//categoryPercentage: 1,
-						//barPercentage: .9
-					}],
-					yAxes: [{
-						gridLines: {
-							display: true,
-							zeroLineColor: "rgba(0,0,0,0)"
-						},
-                        ticks: {
-                            min: 0,
-                            max: 5
-                        }
-					}]
-				}
-            }
-        };
-
-		var reviewSourcesConfig = {
-			type: 'pie',
-			data: {
-				datasets: [{
-					data: [23, 57, 68],
-					borderWidth: 0,
-					borderColor: [
-						"#4285f4",
-						"#d32323",
-						"#ffb900"
-					],
-					backgroundColor: [
-						"#4285f4",
-						"#d32323",
-						"#ffb900"
-					]
-				}],
-				labels: [
-					"Google",
-					"Yelp",
-					"Bing"
-				]
-			},
-			options: {
-				responsive: true,
-                tooltips: {
-					callbacks: {
-						label: function(tooltipItems, data) {
-							return " " + data.labels[tooltipItems.index] + ": " + data.datasets[0].data[tooltipItems.index] + " Reviews";
-						},
-					}
-                }
-			}
-		};
-
 		window.onload = function () {
+            var ctx1 = document.getElementById("audienceOverTime").getContext("2d");
+            window.audienceOverTimeLine = new Chart(ctx1, audienceOverTimeConfig);
 
-			var ctx1 = document.getElementById("totalStarDistribution").getContext("2d");
-			window.totalStarDistributionBar = new Chart(ctx1, totalStarDistributionConfig);
-
-            var ctx2 = document.getElementById("numberOfReviews").getContext("2d");
-            window.numberOfReviewsLine = new Chart(ctx2, numberOfReviewsConfig);
-
-            var ctx3 = document.getElementById("ratingOverTime").getContext("2d");
-            window.ratingOverTimeBar = new Chart(ctx3, ratingOverTimeConfig);
-
-            var ctx4 = document.getElementById("reviewSources").getContext("2d");
-            window.reviewSourcesPie = new Chart(ctx4, reviewSourcesConfig);
-
+            var ctx2 = document.getElementById("activityOverTime").getContext("2d");
+            window.activityOverTimeLine = new Chart(ctx2, activityOverTimeConfig);
 		};
 	</script>
 

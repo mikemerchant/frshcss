@@ -205,8 +205,10 @@ body {
 
 
 // SOCIAL Page
-.frsh-score {
+.frsh-social-score {
 	font-size: $font-size-h1;
 	line-height: $headings-line-height;
-	margin-bottom: $headings-margin-bottom;
+	margin-bottom: 1.5rem;
+	text-align: center;
+	font-weight: 500;
 }
