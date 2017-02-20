@@ -66,11 +66,33 @@
 							
 							<canvas id="audienceOverTime"></canvas>
 
-							<h4 class="text-center mt-5 mb-3">Audience Breakdown</h4>
+							<h4 class="text-center my-4">Audience Breakdown</h4>
+							<ul class="list-group">
+								<li class="list-group-item justify-content-between">
+									Twitter Followers
+									<span class="badge badge-default">448</span>
+								</li>
+								<li class="list-group-item justify-content-between">
+									Friends
+									<span class="badge badge-default">87</span>
+								</li>
+								<li class="list-group-item justify-content-between">
+									Retweets
+									<span class="badge badge-default">23</span>
+								</li>
+								<li class="list-group-item justify-content-between">
+									Likes
+									<span class="badge badge-default">78</span>
+								</li>
+								<li class="list-group-item justify-content-between">
+									G+ Followers
+									<span class="badge badge-default">50</span>
+								</li>
+							</ul>
 						</div>
-
 					</div>
 				</div>
+				
 				<div class="col-lg-6 d-flex">
 					<div class="card mb-4">
 						<div class="card-block">
@@ -79,11 +101,172 @@
 
 							<canvas id="activityOverTime"></canvas>
 
-							<h4 class="text-center mt-5 mb-3">Activity Breakdown</h4>
+							<h4 class="text-center my-4">Activity Breakdown</h4>
+							<ul class="list-group">
+								<li class="list-group-item justify-content-between">
+									Tweets
+									<span class="badge badge-default">783</span>
+								</li>
+								<li class="list-group-item justify-content-between">
+									Check-Ins
+									<span class="badge badge-default">8</span>
+								</li>
+								<li class="list-group-item justify-content-between">
+									Mentions
+									<span class="badge badge-default">204</span>
+								</li>
+								<li class="list-group-item justify-content-between">
+									Plus Ones (+1's)
+									<span class="badge badge-default">21</span>
+								</li>
+							</ul>
 						</div>
 					</div>
 				</div>
 			</div>
+
+
+			<div class="card mb-4">
+				<div class="card-block">
+					<h3 class="card-title">Post Directly</h3>
+					<p class="card-text mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio dolor, totam quae ipsa amet ut quod veniam.</p>
+
+					<fieldset class="form-group">
+						<label class="custom-control custom-checkbox mb-0 mr-3">
+							<input type="checkbox" class="custom-control-input">
+							<span class="custom-control-indicator"></span>
+							<span class="custom-control-description">Post to Facebook</span>
+						</label>
+						<label class="custom-control custom-checkbox mb-0 mr-3">
+							<input type="checkbox" class="custom-control-input">
+							<span class="custom-control-indicator"></span>
+							<span class="custom-control-description">Post to Twitter</span>
+						</label>
+						<label class="custom-control custom-checkbox m-0">
+							<input type="checkbox" class="custom-control-input">
+							<span class="custom-control-indicator"></span>
+							<span class="custom-control-description">Post to Google+</span>
+						</label>
+					</fieldset>
+
+					<div class="form-group">
+						<textarea class="form-control" id="exampleTextarea" rows="3"></textarea>
+					</div>
+
+					<div class="post-actions d-flex justify-content-between align-items-center">
+						<div class="post-add-image">
+							<a href="#" class="btn btn-link"><i class="material-icons">image</i> Add Image</a>
+						</div>
+						<div class="post-send d-flex align-items-center">
+							<small class="post-chars text-muted mr-4">140 Characters Remaining</small>
+							<a href="#" class="btn btn-primary btn-lg">Post Message</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+
+			<div class="row">
+				<div class="col-lg-4 d-flex">
+					<div class="card mb-4">
+						<div class="card-block">
+							<h3 class="card-title d-flex align-items-center"><img class="frsh-social-icon mr-3" src="../../img/social-icons/twitter.png" alt="Twitter">Twitter</h3>
+
+							<div class="input-group input-group-sm">
+								<span class="input-group-addon text-success"><i class="material-icons">check</i></span>
+								<input type="text" class="form-control" placeholder="Enter URL" value="https://twitter.com/NBA">
+								<span class="input-group-btn">
+									<button class="btn btn-secondary" type="button">Update</button>
+								</span>
+							</div>
+
+						</div>
+
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item justify-content-between">
+								Tweets
+								<span class="badge badge-default">783</span>
+							</li>
+							<li class="list-group-item justify-content-between">
+								Following
+								<span class="badge badge-default">2</span>
+							</li>
+							<li class="list-group-item justify-content-between">
+								Followers
+								<span class="badge badge-default">448</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-4 d-flex">
+					<div class="card mb-4">
+						<div class="card-block">
+							<h3 class="card-title d-flex align-items-center"><img class="frsh-social-icon mr-3" src="../../img/social-icons/facebook.png" alt="Facebook">Facebook</h3>
+
+							<div class="input-group input-group-sm">
+								<input type="text" class="form-control" placeholder="">
+								<span class="input-group-btn">
+									<button class="btn btn-secondary" type="button">Find</button>
+								</span>
+							</div>
+							<small class="form-text text-muted d-block mt-2">Enter the URL of your Facebook page above</small>
+						</div>
+							
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item justify-content-between">
+								People talking about your page
+								<span class="badge badge-default">14</span>
+							</li>
+							<li class="list-group-item justify-content-between">
+								Likes
+								<span class="badge badge-default">78</span>
+							</li>
+							<li class="list-group-item justify-content-between">
+								Visits & Check-ins
+								<span class="badge badge-default">8</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="col-lg-4 d-flex">
+					<div class="card mb-4">
+						<div class="card-block">
+							<h3 class="card-title d-flex align-items-center"><img class="frsh-social-icon mr-3" src="../../img/social-icons/google-plus.png" alt="Google+">Google+</h3>
+
+							<div class="has-danger">
+								<div class="input-group input-group-sm">
+									<span class="input-group-addon bg-danger text-white"><i class="material-icons">error_outline</i></span>
+									<input type="text" class="form-control" placeholder="Enter URL" value="https://twitter.com/NBA">
+									<span class="input-group-btn">
+										<button class="btn btn-outline-danger" type="button">Update</button>
+									</span>
+								</div>
+								<small class="form-control-feedback d-block mt-2">We couldn't find your profile with that URL</small>
+							</div>
+						</div>
+							
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item justify-content-between">
+								Followers
+								<span class="badge badge-default">50</span>
+							</li>
+							<li class="list-group-item justify-content-between">
+								Plus Ones (+1's)
+								<span class="badge badge-default">21</span>
+							</li>
+							<li class="list-group-item justify-content-between">
+								Posts
+								<span class="badge badge-default">2</span>
+							</li>
+						</ul>
+
+					</div>
+				</div>
+			</div>
+
 
 		</div>
 	</section>
@@ -234,8 +417,8 @@
             data: {
                 labels: ["January", "February", "March", "April", "May"],
                 datasets: [{
-                    label: "Total Reviews",
-                    data: [98, 122, 165, 210, 239],
+                    label: "Total Activity",
+                    data: [98, 300, 890, 1210, 1100],
 					borderWidth: 3,
                     borderColor: "#1abc9c",
 					pointBackgroundColor: "#1abc9c",
@@ -245,8 +428,8 @@
             		pointHoverBorderWidth: 3,
 					fill: false
                 }, {
-                    label: "Standard Reviews",
-                    data: [72, 91, 124, 130, 148],
+                    label: "Tweets",
+                    data: [60, 80, 320, 924, 783],
 					borderWidth: 2,
                     borderColor: "#bdc3c7",
                     backgroundColor: "#bdc3c7",
@@ -255,8 +438,28 @@
             		pointHoverBorderWidth: 2,
 					fill: false
                 }, {
-                    label: "Verticals Reviews",
-                    data: [26, 31, 41, 80, 91],
+                    label: "Check-Ins",
+                    data: [23, 9, 4, 2, 8],
+					borderWidth: 2,
+                    borderColor: "#bdc3c7",
+                    backgroundColor: "#bdc3c7",
+            		pointRadius: 0,
+            		pointBorderWidth: 2,
+            		pointHoverBorderWidth: 2,
+					fill: false
+                }, {
+                    label: "Mentions",
+                    data: [36, 72, 545, 486, 204],
+					borderWidth: 2,
+                    borderColor: "#bdc3c7",
+                    backgroundColor: "#bdc3c7",
+            		pointRadius: 0,
+            		pointBorderWidth: 2,
+            		pointHoverBorderWidth: 2,
+					fill: false
+                }, {
+                    label: "Plus Ones",
+                    data: [66, 9, 30, 60, 21],
 					borderWidth: 2,
                     borderColor: "#bdc3c7",
                     backgroundColor: "#bdc3c7",
