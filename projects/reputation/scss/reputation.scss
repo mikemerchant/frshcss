@@ -12,6 +12,18 @@ body {
     background-color: #ecf0f1;
 }
 
+// table utilities
+.table-td-middle {
+	td {
+		vertical-align: middle;
+	}
+}
+.table-center {
+	th, td {
+		text-align: center;
+	}
+}
+
 // make my cards quick and dirty
 
 .card {
