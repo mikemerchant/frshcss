@@ -17,7 +17,7 @@ $gray-dark:                 #373a3c; // 24%
 $gray:                      #55595c; // 36%
 $gray-light:                #818a91; // 54%
 $gray-lighter:              #eceeef; // 93%
-$gray-lightest:             #f7f7f9; // 97%
+$gray-lightest:             #f7f7f7; // 97%
 
 // Reassign color vars to semantic color scheme
 $brand-primary:             #34495e;
@@ -52,3 +52,9 @@ $card-spacer-x:            1.25rem;
 $card-spacer-y:            1rem;
 
 $card-border-width:        0px;
+
+
+// custom checks and radios
+$custom-control-focus-indicator-box-shadow: 0 0 0 1px $white, 0 0 0 3px $gray-lighter;
+$custom-control-checked-indicator-bg: $brand-success;
+$custom-control-active-indicator-bg: lighten($brand-success, 35%);

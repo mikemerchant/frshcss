@@ -43,7 +43,7 @@
 		</div>
 	</section>
 
-	<section class="mb-4">
+	<section class="mb-5 text-center">
 		<div class="container">
 			<div class="btn-group">
 				<a href="index.html" class="btn btn-primary">Summary Page</a>
@@ -57,49 +57,353 @@
 	<section class="mb-5">
 		<div class="container">
 
-			<div class="card mb-4">
-				<div class="card-block">
-					<h3 class="card-title">Site Breakdown</h3>
+            <div class="site-breakdown-header">
 
-                    <table class="table table-bordered table-td-middle table-center mb-0">
-                        <thead class="thead-default">
-                            <tr>
-                                <th>Sites</th>
-                                <th>Reviews</th>
-                                <th>Score</th>
-                                <th>Stars</th>
-                                <th>Sentiment</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>16</td>
-                                <td>239</td>
-                                <td>
-                                    <div class="frsh-rating frsh-rating-lg justify-content-center">
-                                        <div class="frsh-rating-score mr-1">3.5</div>
-                                        <div class="frsh-rating-stars">
-                                            <i class="material-icons star">star</i>
-                                            <i class="material-icons star">star</i>
-                                            <i class="material-icons star">star</i>
-                                            <i class="material-icons star star-half">star</i>
-                                            <i class="material-icons star star-zero">star</i>
-                                        </div>
-                                    </div>
-                                </td>
-                                <td><canvas id="siteStarDistribution" class="mx-auto" width="64" height="24"></canvas></td>
-                                <td>
-                                    <div class="frsh-rating frsh-rating-lg justify-content-center">
-                                        <div class="frsh-rating-sentiment">
-                                            <i class="material-icons">sentiment_very_satisfied</i>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-				</div>
-			</div>
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Sites</div>
+                    </div>
+                    <div class="card-block">
+                        <div class="reviews-sites-value">16</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Reviews</div>
+                    </div>
+                    <div class="card-block">
+                        <div class="reviews-reviews-value">239</div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Average Score</div>
+                    </div>
+                    <div class="card-block">
+                        <div class="frsh-rating frsh-rating-xl justify-content-center">
+                            <div class="frsh-rating-score mr-1">3.3</div>
+                            <div class="frsh-rating-stars">
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star star-half">star</i>
+                                <i class="material-icons star star-zero">star</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Star Distribution</div>
+                    </div>
+                    <div class="card-block">
+                        <canvas id="siteStarDistribution" class="mx-auto" width="90" height="45"></canvas>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title">Sentiment</div>
+                    </div>
+                    <div class="card-block">
+                        <div class="frsh-rating">
+                            <div class="frsh-rating-sentiment">
+                                <i class="material-icons">sentiment_very_satisfied</i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div class="card site-breakdown-accordian mb-4">
+                <a  class="card-header" data-toggle="collapse" href="#siteBreakdownAccordian" aria-expanded="true" aria-controls="siteBreakdownAccordian">
+                    <span class="card-title">Site Breakdown</span>
+                    <span class="icon-expand-more"><i class="material-icons">expand_more</i></span>
+                    <span class="icon-expand-less"><i class="material-icons">expand_less</i></span>
+                </a>
+                <div class="collapse show" id="siteBreakdownAccordian">
+                    <div class="card-block">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <canvas class="mb-4" id="numberOfReviews"></canvas>
+                            </div>
+                            <div class="col-md-4">
+                                <canvas class="mb-4" id="ratingOverTime"></canvas>
+                            </div>
+                            <div class="col-md-4">
+                                <canvas class="mb-4" id="sentimentOverTime"></canvas>
+                            </div>
+                        </div>
+
+                        <h5>Standard Sites</h5>
+                        <div class="table-responsive">
+                            <table class="table table-sm" id="standard-sites-table">
+                                <thead class="thead-default">
+                                    <tr>
+                                        <th>Site</th>
+                                        <th>Reviews</th>
+                                        <th>Score</th>
+                                        <th>Sentiment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><img class="table-logo" src="../../img/brand-logos/google-wordmark.png" alt="Google"></td>
+                                        <td>23</td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-score mr-1">2.3</div>
+                                                <div class="frsh-rating-stars">
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star star-half">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-sentiment">
+                                                    <i class="material-icons">sentiment_very_satisfied</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="table-logo" src="../../img/brand-logos/yelp-sm.png" alt="Yelp"></td>
+                                        <td>9</td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-score mr-1">2.1</div>
+                                                <div class="frsh-rating-stars">
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-sentiment">
+                                                    <i class="material-icons">sentiment_very_satisfied</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="table-logo" src="../../img/brand-logos/facebook-wordmark-sm.png" alt="Facebook"></td>
+                                        <td>5</td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-score mr-1">3.4</div>
+                                                <div class="frsh-rating-stars">
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star star-half">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-sentiment">
+                                                    <i class="material-icons">sentiment_very_satisfied</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="table-logo" src="../../img/brand-logos/yp.png" alt="YP"></td>
+                                        <td>14</td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-score mr-1">4.2</div>
+                                                <div class="frsh-rating-stars">
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-sentiment">
+                                                    <i class="material-icons">sentiment_very_satisfied</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="table-logo" src="../../img/brand-logos/yellowbot.png" alt="Yellowbot"></td>
+                                        <td>2</td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-score mr-1">2.7</div>
+                                                <div class="frsh-rating-stars">
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star star-half">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-sentiment">
+                                                    <i class="material-icons">sentiment_very_satisfied</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="table-logo" src="../../img/brand-logos/superpages.png" alt="Superpages"></td>
+                                        <td>8</td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-score mr-1">3.2</div>
+                                                <div class="frsh-rating-stars">
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-sentiment">
+                                                    <i class="material-icons">sentiment_very_satisfied</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><img class="table-logo" src="../../img/brand-logos/foursquare-wordmark-sm.png" alt="Foursquare"></td>
+                                        <td>6</td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-score mr-1">3.9</div>
+                                                <div class="frsh-rating-stars">
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star star-half">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-sentiment">
+                                                    <i class="material-icons">sentiment_very_satisfied</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <h5>Vertical Sites</h5>
+                        <div class="table-responsive">
+                            <table class="table table-sm" id="vertical-sites-table">
+                                <thead class="thead-default">
+                                    <tr>
+                                        <th>Site</th>
+                                        <th>Reviews</th>
+                                        <th>Score</th>
+                                        <th>Sentiment</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>A+ Directory</td>
+                                        <td>12</td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-score mr-1">1.9</div>
+                                                <div class="frsh-rating-stars">
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star star-half">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-sentiment">
+                                                    <i class="material-icons">sentiment_very_satisfied</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Mike's Directories</td>
+                                        <td>28</td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-score mr-1">3.3</div>
+                                                <div class="frsh-rating-stars">
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star star-half">star</i>
+                                                    <i class="material-icons star star-zero">star</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-sentiment">
+                                                    <i class="material-icons">sentiment_very_satisfied</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Newport Pages</td>
+                                        <td>9</td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-score mr-1">4.6</div>
+                                                <div class="frsh-rating-stars">
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star">star</i>
+                                                    <i class="material-icons star star-half">star</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="frsh-rating">
+                                                <div class="frsh-rating-sentiment">
+                                                    <i class="material-icons">sentiment_very_satisfied</i>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
             <div class="card mb-4">
                 <div class="card-header bg-faded">
@@ -168,6 +472,97 @@
                         </div>
                         <div class="frsh-rating frsh-rating-lg mb-3">
                             <div class="frsh-rating-sentiment mr-2">
+                                <i class="material-icons">sentiment_satisfied</i>
+                            </div>
+                            <div class="frsh-rating-score mr-1">4.0</div>
+                            <div class="frsh-rating-stars">
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star star-zero">star</i>
+                            </div>
+                        </div>
+                        <div class="frsh-review-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ducimus commodi dolorum expedita unde, deserunt saepe odit tempore voluptas necessitatibus, sit sequi recusandae quisquam ea dolore ex numquam harum, provident!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quas tempora deleniti aut eaque quisquam vitae molestias repellendus, quibusdam pariatur, non soluta alias facere nihil saepe sapiente? Doloribus, quisquam, porro!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ducimus commodi dolorum expedita unde, deserunt saepe odit tempore voluptas necessitatibus, sit sequi recusandae quisquam ea dolore ex numquam harum, provident!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quas tempora deleniti aut eaque quisquam vitae molestias repellendus, quibusdam pariatur, non soluta alias facere nihil saepe sapiente? Doloribus, quisquam, porro!</p>
+                        </div>
+                    </div>
+
+                    <div class="frsh-review mb-3">
+                        <div class="frsh-review-header">
+                            <div class="frsh-profile">
+                                <div class="frsh-profile-img">
+                                    <img class="rounded" src="img/users/11.jpg">
+                                </div>
+                                <div class="frsh-profile-name">
+                                    <div class="profile-name">Dustin Lambert</div>
+                                    <div class="profile-meta">
+                                        <div class="source"><img class="profile-logo" src="../../img/brand-logos/facebook-wordmark-sm.png" alt="Facebook"></div>
+                                        <div>&middot;</div>
+                                        <div class="time">Nov 5</div>
+                                    </div>
+                                </div>
+                                <div class="frsh-review-action">
+                                    <div class="dropdown">
+                                        <a class="frsh-action" href="#" id="negReviewAction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">more_horiz</i></a>
+
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="negReviewAction">
+                                            <a class="dropdown-item" href="#"><i class="material-icons">open_in_browser</i> View Review Source</a>
+                                            <a class="dropdown-item" href="#"><i class="material-icons">link</i> Copy Link to Review</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frsh-rating frsh-rating-lg mb-3">
+                            <div class="frsh-rating-sentiment mr-2">
+                                <i class="material-icons">sentiment_dissatisfied</i>
+                            </div>
+                            <div class="frsh-rating-score mr-1">2.0</div>
+                            <div class="frsh-rating-stars">
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star star-zero">star</i>
+                                <i class="material-icons star star-zero">star</i>
+                                <i class="material-icons star star-zero">star</i>
+                            </div>
+                        </div>
+                        <div class="frsh-review-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique cum velit quasi harum quo accusamus, quaerat enim excepturi sed doloremque. Doloremque dolore consectetur necessitatibus perspiciatis sit ratione explicabo dolorem, atque.</p>
+                        </div>
+                    </div>
+
+                    <div class="frsh-review mb-3">
+                        <div class="frsh-review-header">
+                            <div class="frsh-profile">
+                                <div class="frsh-profile-img">
+                                    <img class="rounded" src="img/users/35.jpg">
+                                </div>
+                                <div class="frsh-profile-name">
+                                    <div class="profile-name">Jacob Collins</div>
+                                    <div class="profile-meta">
+                                        <div class="source"><img class="profile-logo" src="../../img/brand-logos/google-wordmark.png" alt="Google"></div>
+                                        <div>&middot;</div>
+                                        <div class="time">Dec 6</div>
+                                    </div>
+                                </div>
+                                <div class="frsh-review-action">
+                                    <div class="dropdown">
+                                        <a class="frsh-action" href="#" id="negReviewAction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">more_horiz</i></a>
+
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="negReviewAction">
+                                            <a class="dropdown-item" href="#"><i class="material-icons">open_in_browser</i> View Review Source</a>
+                                            <a class="dropdown-item" href="#"><i class="material-icons">link</i> Copy Link to Review</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frsh-rating frsh-rating-lg mb-3">
+                            <div class="frsh-rating-sentiment mr-2">
                                 <i class="material-icons">sentiment_neutral</i>
                             </div>
                             <div class="frsh-rating-score mr-1">2.0</div>
@@ -180,10 +575,139 @@
                             </div>
                         </div>
                         <div class="frsh-review-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ducimus commodi dolorum expedita unde, deserunt saepe odit tempore voluptas necessitatibus, sit sequi recusandae quisquam ea dolore ex numquam harum, provident!</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quas tempora deleniti aut eaque quisquam vitae molestias repellendus, quibusdam pariatur, non soluta alias facere nihil saepe sapiente? Doloribus, quisquam, porro!</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ducimus commodi dolorum expedita unde, deserunt saepe odit tempore voluptas necessitatibus, sit sequi recusandae quisquam ea dolore ex numquam harum, provident!</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quas tempora deleniti aut eaque quisquam vitae molestias repellendus, quibusdam pariatur, non soluta alias facere nihil saepe sapiente? Doloribus, quisquam, porro!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique cum velit quasi harum quo accusamus, quaerat enim excepturi sed doloremque. Doloremque dolore consectetur necessitatibus perspiciatis sit ratione explicabo dolorem, atque.</p>
+                        </div>
+                    </div>
+
+                    <div class="frsh-review mb-3">
+                        <div class="frsh-review-header">
+                            <div class="frsh-profile">
+                                <div class="frsh-profile-img">
+                                    <img class="rounded" src="img/users/46.jpg">
+                                </div>
+                                <div class="frsh-profile-name">
+                                    <div class="profile-name">Shelly Mcdonalid</div>
+                                    <div class="profile-meta">
+                                        <div class="source"><img class="profile-logo" src="../../img/brand-logos/superpages.png" alt="Super Pages"></div>
+                                        <div>&middot;</div>
+                                        <div class="time">Apr 2</div>
+                                    </div>
+                                </div>
+                                <div class="frsh-review-action">
+                                    <div class="dropdown">
+                                        <a class="frsh-action" href="#" id="negReviewAction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">more_horiz</i></a>
+
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="negReviewAction">
+                                            <a class="dropdown-item" href="#"><i class="material-icons">open_in_browser</i> View Review Source</a>
+                                            <a class="dropdown-item" href="#"><i class="material-icons">link</i> Copy Link to Review</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frsh-rating frsh-rating-lg mb-3">
+                            <div class="frsh-rating-sentiment mr-2">
+                                <i class="material-icons">sentiment_very_satisfied</i>
+                            </div>
+                            <div class="frsh-rating-score mr-1">5.0</div>
+                            <div class="frsh-rating-stars">
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                            </div>
+                        </div>
+                        <div class="frsh-review-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique cum velit quasi harum quo accusamus, quaerat enim excepturi sed doloremque. Doloremque dolore consectetur necessitatibus perspiciatis sit ratione explicabo dolorem, atque.</p>
+                        </div>
+                    </div>
+
+                    <div class="frsh-review mb-3">
+                        <div class="frsh-review-header">
+                            <div class="frsh-profile">
+                                <div class="frsh-profile-img">
+                                    <img class="rounded" src="img/users/54.jpg">
+                                </div>
+                                <div class="frsh-profile-name">
+                                    <div class="profile-name">Harold Gordon</div>
+                                    <div class="profile-meta">
+                                        <div class="source"><img class="profile-logo" src="../../img/brand-logos/yellowbot.png" alt="Yellowbot"></div>
+                                        <div>&middot;</div>
+                                        <div class="time">Apr 2</div>
+                                    </div>
+                                </div>
+                                <div class="frsh-review-action">
+                                    <div class="dropdown">
+                                        <a class="frsh-action" href="#" id="negReviewAction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">more_horiz</i></a>
+
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="negReviewAction">
+                                            <a class="dropdown-item" href="#"><i class="material-icons">open_in_browser</i> View Review Source</a>
+                                            <a class="dropdown-item" href="#"><i class="material-icons">link</i> Copy Link to Review</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frsh-rating frsh-rating-lg mb-3">
+                            <div class="frsh-rating-sentiment mr-2">
+                                <i class="material-icons">sentiment_neutral</i>
+                            </div>
+                            <div class="frsh-rating-score mr-1">3.0</div>
+                            <div class="frsh-rating-stars">
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star star-zero">star</i>
+                                <i class="material-icons star star-zero">star</i>
+                            </div>
+                        </div>
+                        <div class="frsh-review-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique cum velit quasi harum quo accusamus, quaerat enim excepturi sed doloremque. Doloremque dolore consectetur necessitatibus perspiciatis sit ratione explicabo dolorem, atque.</p>
+                        </div>
+                    </div>
+
+                    <div class="frsh-review mb-3">
+                        <div class="frsh-review-header">
+                            <div class="frsh-profile">
+                                <div class="frsh-profile-img">
+                                    <img class="rounded" src="img/users/32.jpg">
+                                </div>
+                                <div class="frsh-profile-name">
+                                    <div class="profile-name">Clifford Perez</div>
+                                    <div class="profile-meta">
+                                        <div class="source"><img class="profile-logo" src="../../img/brand-logos/yp-sm.png" alt="YP"></div>
+                                        <div>&middot;</div>
+                                        <div class="time">Oct 10</div>
+                                    </div>
+                                </div>
+                                <div class="frsh-review-action">
+                                    <div class="dropdown">
+                                        <a class="frsh-action" href="#" id="negReviewAction" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="material-icons">more_horiz</i></a>
+
+                                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="negReviewAction">
+                                            <a class="dropdown-item" href="#"><i class="material-icons">open_in_browser</i> View Review Source</a>
+                                            <a class="dropdown-item" href="#"><i class="material-icons">link</i> Copy Link to Review</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="frsh-rating frsh-rating-lg mb-3">
+                            <div class="frsh-rating-sentiment mr-2">
+                                <i class="material-icons">sentiment_neutral</i>
+                            </div>
+                            <div class="frsh-rating-score mr-1">2.0</div>
+                            <div class="frsh-rating-stars">
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star">star</i>
+                                <i class="material-icons star star-zero">star</i>
+                                <i class="material-icons star star-zero">star</i>
+                                <i class="material-icons star star-zero">star</i>
+                            </div>
+                        </div>
+                        <div class="frsh-review-content">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique cum velit quasi harum quo accusamus, quaerat enim excepturi sed doloremque. Doloremque dolore consectetur necessitatibus perspiciatis sit ratione explicabo dolorem, atque.</p>
                         </div>
                     </div>
 
@@ -191,14 +715,14 @@
                         <div class="frsh-review-header">
                             <div class="frsh-profile">
                                 <div class="frsh-profile-img">
-                                    <img class="rounded" src="img/users/44.jpg">
+                                    <img class="rounded" src="img/users/32.jpg">
                                 </div>
                                 <div class="frsh-profile-name">
-                                    <div class="profile-name">Rhonda Fletcher</div>
+                                    <div class="profile-name">Clifford Perez</div>
                                     <div class="profile-meta">
-                                        <div class="source"><img class="profile-logo" src="../../img/brand-logos/yelp-sm.png" alt="Yelp"></div>
+                                        <div class="source"><img class="profile-logo" src="../../img/brand-logos/foursquare-wordmark-sm.png" alt="Foursquare"></div>
                                         <div>&middot;</div>
-                                        <div class="time">Feb 8</div>
+                                        <div class="time">Oct 11</div>
                                         <div>&middot;</div>
                                         <div class="checkin">1 check-in</div>
                                     </div>
@@ -229,12 +753,10 @@
                             </div>
                         </div>
                         <div class="frsh-review-content">
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ducimus commodi dolorum expedita unde, deserunt saepe odit tempore voluptas necessitatibus, sit sequi recusandae quisquam ea dolore ex numquam harum, provident!</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quas tempora deleniti aut eaque quisquam vitae molestias repellendus, quibusdam pariatur, non soluta alias facere nihil saepe sapiente? Doloribus, quisquam, porro!</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni ducimus commodi dolorum expedita unde, deserunt saepe odit tempore voluptas necessitatibus, sit sequi recusandae quisquam ea dolore ex numquam harum, provident!</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique quas tempora deleniti aut eaque quisquam vitae molestias repellendus, quibusdam pariatur, non soluta alias facere nihil saepe sapiente? Doloribus, quisquam, porro!</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique cum velit quasi harum quo accusamus, quaerat enim excepturi sed doloremque. Doloremque dolore consectetur necessitatibus perspiciatis sit ratione explicabo dolorem, atque.</p>
                         </div>
                     </div>
+
 				</div>
             </div>
 
@@ -288,11 +810,14 @@
 						"rgba(26, 188, 156,1.0)",
 					],
             		borderWidth: 0,
-                    data: [21, 12, 43, 4, 14]
+                    data: [14, 4, 43, 12, 21]
                 }]
             },
             options: {
-                responsive: false,
+                responsive: true,
+                animation: {
+                    duration: 0
+                },
                 legend: {
                     display: false
                 },
@@ -310,11 +835,208 @@
             }
         };
 
+		var numberOfReviewsConfig = {
+            type: 'line',
+            data: {
+                labels: ["January", "February", "March", "April", "May"],
+                datasets: [{
+                    label: "Total Reviews",
+                    data: [98, 122, 165, 210, 239],
+					borderWidth: 3,
+                    borderColor: "#1abc9c",
+					pointBackgroundColor: "#1abc9c",
+                    backgroundColor: "#1abc9c",
+            		pointRadius: 0,
+            		pointBorderWidth: 3,
+            		pointHoverBorderWidth: 3,
+					fill: false
+                }, {
+                    label: "Standard Reviews",
+                    data: [72, 91, 124, 130, 148],
+					borderWidth: 2,
+                    borderColor: "#bdc3c7",
+                    backgroundColor: "#bdc3c7",
+            		pointRadius: 0,
+            		pointBorderWidth: 2,
+            		pointHoverBorderWidth: 2,
+					fill: false
+                }, {
+                    label: "Verticals Reviews",
+                    data: [26, 31, 41, 80, 91],
+					borderWidth: 2,
+                    borderColor: "#bdc3c7",
+                    backgroundColor: "#bdc3c7",
+            		pointRadius: 0,
+            		pointBorderWidth: 2,
+            		pointHoverBorderWidth: 2,
+					fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 0
+                },
+				title: {
+					display: true,
+					text: 'Reviews over time',
+					fontSize: 14
+				},
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+					callbacks: {
+						label: function(tooltipItems, data) {
+							return " " + data.datasets[tooltipItems.datasetIndex].label + ": " + tooltipItems.yLabel;
+						},
+					}
+                },
+                legend: {
+                    display: false
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: false
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+						gridLines: {
+							zeroLineColor: "rgba(0,0,0,0)"
+						},
+                    }],
+                    yAxes: [{
+                        display: true,
+						gridLines: {
+							zeroLineColor: "rgba(0,0,0,0)"
+						},
+                    }]
+                }
+            }
+        };
+
+		var ratingOverTimeConfig = {
+            type: 'bar',
+            data: {
+                labels: ["January", "February", "March", "April", "May"],
+                datasets: [{
+                    label: "Average Rating",
+                    backgroundColor: "#1abc9c",
+            		borderWidth: 0,
+                    data: [3.2, 2.9, 3.6, 4.1, 4.5]
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 0
+                },
+				title: {
+					display: true,
+					text: 'Rating over time',
+					fontSize: 14
+				},
+                tooltips: {
+					callbacks: {
+						label: function(tooltipItems, data) {
+							return " " + data.datasets[tooltipItems.datasetIndex].label + ": " + tooltipItems.yLabel;
+						},
+					}
+                },
+                legend: {
+                    display: false
+                },
+				scales: {
+					xAxes: [{
+						display: true,
+						gridLines: {
+							display: false
+						},
+						//categoryPercentage: 1,
+						//barPercentage: .9
+					}],
+					yAxes: [{
+						gridLines: {
+							display: true,
+							zeroLineColor: "rgba(0,0,0,0)"
+						},
+                        ticks: {
+                            min: 0,
+                            max: 5
+                        }
+					}]
+				}
+            }
+        };
+
+		var sentimentOverTimeConfig = {
+            type: 'bar',
+            data: {
+                labels: ["January", "February", "March", "April", "May"],
+                datasets: [{
+                    label: "Average Sentiment",
+                    backgroundColor: "#1abc9c",
+            		borderWidth: 0,
+                    data: [3, 2, 3, 3, 4]
+                }]
+            },
+            options: {
+                responsive: true,
+                animation: {
+                    duration: 0
+                },
+				title: {
+					display: true,
+					text: 'Sentiment over time',
+					fontSize: 14
+				},
+                tooltips: {
+					callbacks: {
+						label: function(tooltipItems, data) {
+							return " " + data.datasets[tooltipItems.datasetIndex].label + ": " + tooltipItems.yLabel;
+						},
+					}
+                },
+                legend: {
+                    display: false
+                },
+				scales: {
+					xAxes: [{
+						display: true,
+						gridLines: {
+							display: false
+						},
+						//categoryPercentage: 1,
+						//barPercentage: .9
+					}],
+					yAxes: [{
+						gridLines: {
+							display: true,
+							zeroLineColor: "rgba(0,0,0,0)"
+						},
+                        ticks: {
+                            min: 0,
+                            max: 5
+                        }
+					}]
+				}
+            }
+        };
+
 
 		window.onload = function () {
 
 			var ctx1 = document.getElementById("siteStarDistribution").getContext("2d");
 			window.siteStarDistributionBar = new Chart(ctx1, siteStarDistributionConfig);
+
+            var ctx2 = document.getElementById("numberOfReviews").getContext("2d");
+            window.numberOfReviewsLine = new Chart(ctx2, numberOfReviewsConfig);
+
+            var ctx3 = document.getElementById("ratingOverTime").getContext("2d");
+            window.ratingOverTimeBar = new Chart(ctx3, ratingOverTimeConfig);
+
+            var ctx4 = document.getElementById("sentimentOverTime").getContext("2d");
+            window.sentimentOverTimeBar = new Chart(ctx4, sentimentOverTimeConfig);
 
 		};
 	</script>

@@ -4,12 +4,19 @@
 @import "../../../scss/bootstrap/variables";
 @import "../../../scss/bootstrap/mixins";
 
+
+// mouse pointer when hover over buttons
+.btn {
+	&:hover {
+		cursor: pointer;
+	}
+}
 //
 // the summary page 
 // 
 
 body {
-    background-color: #ecf0f1;
+    background-color: $gray-lighter;
 }
 
 // table utilities
@@ -30,6 +37,10 @@ body {
 	.d-flex > & {
 		flex: 1 1 auto;
 	}
+}
+
+.card-header {
+	background-color: $white;
 }
 
 .card-outline-secondary {
@@ -231,4 +242,321 @@ body {
 	height: 2rem;
 	width: auto;
 	object-fit: contain;
+}
+
+
+
+
+// Review Page
+
+// overall score area on review page
+.site-breakdown-header {
+	margin-bottom: 1.5rem;
+
+	// header layout
+	.card {
+		margin-bottom: 1rem;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	// make flex on lg screen up
+	@include media-breakpoint-up(lg) {
+		display: flex;
+		flex-flow: row nowrap;
+
+		.card {
+			flex: 1;
+			margin: 0 1rem 0 0;
+			&:last-child {
+				margin: 0;
+			}
+		}
+	}
+
+	// Card style for header area
+	.card-header {
+		padding-left: 0;
+		padding-right: 0;
+		padding-bottom: 0;
+	}
+	.card-title {
+		font-size: 1.125rem;
+		line-height: $headings-line-height;
+		font-weight: 500;
+		text-align: center;
+		margin-bottom: 0;
+	}
+	.card-block {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+	}
+	.reviews-sites-value,
+	.reviews-reviews-value {
+		text-align: center;
+		font-size: 2.5rem;
+		line-height: $headings-line-height;
+		font-weight: 500;
+	}
+	.frsh-rating-sentiment {
+		font-size: 5rem;
+		line-height: 1;
+	}
+}
+
+
+// Review Site breakdown accordian
+.site-breakdown-accordian {
+	.card-header {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		text-decoration: none;
+		&.collapsed {
+			border-radius: $card-border-radius;
+		}
+	}
+	.card-title {
+		font-size: 1.125rem;
+		line-height: $headings-line-height;
+		font-weight: 500;
+		color: $body-color;
+		margin: 0;
+	}
+
+}
+
+// expand icon
+.icon-expand-more,
+.icon-expand-less {
+	font-size: 2rem;
+	line-height: .75;
+	color: $gray-light;
+	a:hover & {
+		color: $link-hover-color;
+	}
+}
+.icon-expand-more {
+	display: none;
+	.collapsed & {
+		display: block;
+	}
+}
+.icon-expand-less {
+	display: block;
+	.collapsed & {
+		display: none;
+	}
+}
+
+// table styles
+.table-logo {
+	display: block;
+	height: $font-size-base * 1.5;
+	width: auto;
+}
+
+#standard-sites-table,
+#vertical-sites-table {
+	th,td {
+		text-align: center;
+		width: 25%;
+		&:first-child {
+			text-align: left;
+		}
+		.frsh-rating {
+			justify-content: center;
+		}
+	}
+	td {
+		vertical-align: middle;
+	}
+}
+
+
+
+
+// widget page!!!
+.widget-row {
+	display: flex;
+	flex-flow: row wrap;
+	align-items: center;
+
+	padding: .5rem;
+	background-color: $gray-lightest;
+	border-radius: $border-radius-lg;
+	border: 1px solid $gray-lighter;
+	margin-bottom: 1rem;
+
+	.widget-logo {
+		order: 1;
+		width: 4rem;
+		img.logo {
+			display: block;
+			max-width: 4rem;
+			max-height: 2rem;
+		}
+	}
+
+	.widget-check {
+		order: 2;
+		flex: 1;
+		text-align: right;
+		.custom-control {
+			margin: 0;
+		}
+	}
+
+	.widget-field {
+		order: 3;
+		flex: 0 1 100%;
+		margin-top: .5rem;
+	}
+	
+	@include media-breakpoint-up(lg) {
+		.widget-logo {
+			order: 1;
+			margin-right: 1rem;
+			img.logo {
+				margin-left: auto;
+			}
+		}
+		.widget-field {
+			order: 2;
+			flex: 1 0 auto;
+			margin: 0;
+		}
+		.widget-check {
+			margin-left: 1rem;
+			order: 3;
+			flex: 0 1 auto;
+		}
+	}
+}
+
+.widget-row-custom {
+	display: flex;
+	flex-flow: row wrap;
+
+	.widget-order {
+		order: -1;
+		margin-right: .5rem;
+		.form-control {
+			width: 3rem;
+		}
+	}
+	.widget-buttons {
+		order: 4;
+		flex: 0 1 100%;
+		margin-top: 1rem;
+		
+		display: flex;
+		justify-content: space-between;
+
+		.right {
+			margin-left: auto;
+		}
+	}
+	
+	@include media-breakpoint-up(lg) {
+		.widget-order {
+			flex: 0 1 100%;
+			margin: 0 0 .5rem 0;
+			.form-control {
+				margin: 0 auto;
+			}
+		}
+		.widget-buttons {
+			justify-content: center;
+			.right {
+				margin: 0 .5rem;
+			}
+		}
+		.add-logo {
+			font-size: .75rem;
+		}
+	}
+}
+
+.widget-row-custom-add {
+	.widget-order {
+		flex: 0 1 100%;
+		margin-right: 0;
+		margin-bottom: .5rem;
+		.form-control {
+			width: 100%;
+		}
+	}
+	.widget-logo {
+		flex: 0 1 100%;
+	}
+
+	@include media-breakpoint-up(lg) {
+		.widget-logo {
+			margin: 0 0 .5rem 0;
+		}
+	}
+}
+
+.widget-save {
+	margin-top: 2rem;
+	text-align: center;
+}
+.widget-copy {
+	text-align: center;
+}
+
+
+
+
+// THE ACTUAL WIDGET
+.advice-widget {
+
+	.advice-widget-btn {
+		display: flex;
+		align-items: center;
+
+		color: $gray-dark;
+		background-color: $white;
+		padding: .5rem 0 .5rem .5rem;
+		border-radius: $border-radius-lg;
+		border: 1px solid $gray-lighter;
+		margin-bottom: .5rem;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&:hover {
+			background-color: $gray-lighter;
+			.advice-widget-icon {
+				color: $gray-light;
+			}
+		}
+	}
+
+	.advice-widget-logo {
+		width: 3rem;
+		height: 2rem;
+		margin-right: .5rem;
+		text-align: center;
+
+		.advice-widget-logo-img {
+			max-width: 3rem;
+			max-height: 2rem;
+		}
+	}
+
+	.advice-widget-text {
+		font-size: 1rem;
+		line-height: 1.25;
+		font-weight: 500;
+	}
+
+	.advice-widget-icon {
+		font-size: 2rem;
+		line-height: 1;
+		color: $gray-lighter;
+		margin-left: auto;
+	}
 }
